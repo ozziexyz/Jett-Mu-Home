@@ -1,2 +1,2 @@
 # Jett-Mu-Home
-Home for me website yay
+The home for my very niave website!
