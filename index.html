@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" type="image/jpg" href="https://cdn1.medicalnewstoday.com/content/images/articles/279/279176/cantaloupe-cross-section.jpg">
-</head>
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>JM</title>
+    <meta charset="UTF-8">
+    <title>JM</title>
+    <link rel="shortcut icon" type="image/jpg" href="https://cdn1.medicalnewstoday.com/content/images/articles/279/279176/cantaloupe-cross-section.jpg">
+    <style>
+        h1{
+            font-family:sans-serif;
+        }
+        h2{
+            font-family:sans-serif;
+        }
+        p{
+            font-family:sans-serif;
+        }
+        link{
+            display:none;
+        }
+        body{
+            background-color:lightblue;
+        }
         
-        <style>
-            h1{
-                font-family:sans-serif;
-            }
-            h2{
-                font-family:sans-serif;
-            }
-            p{
-                font-family:sans-serif;
-            }
-            link{
-                display:none;
-            }
-            
-            
-        </style>
-    <body style="background-color:lightblue">
+    </style>
+    </head>
+    <body>
         <center>
             <h1>Hello</h1>
             <h2>My name is Jett Mu</h2>
             <p>I am an aspiring graphic designer/coder. I live in the US and I like to eat chicken ramen. Below are some things I created, including this homepage.</p>
             <br>
-            <br>
-            <img src="https://cdn1.medicalnewstoday.com/content/images/articles/279/279176/cantaloupe-cross-section.jpg" height="300px">
         </center>
+        <div style="border:2px solid black" height="1000px" width="400px">
+            <center>
+                <h1 style='font-family:cursive'>Funland</h1>
+                <a href="https://web.editey.com/1FP0N6Aafn2a_3D10qoERClXbjApcN889/index.html">
+                <canvas id="mecanvas" height="210px" width="300px" style="border:1px solid black; background-color:white">No</canvas>
+                </a>
+            </center>
+        </div>
+        <script>
+            var canv = document.getElementById("mecanvas");
+            var ctx = canv.getContext("2d");
+            ctx.fillStyle = "#ff6363";
+            ctx.fillRect(0,0,300,30);
+            ctx.fillStyle = "#ffb042";
+            ctx.fillRect(0,30,300,30);
+            ctx.fillStyle = "#f9ef77";
+            ctx.fillRect(0,60,300,30);
+            ctx.fillStyle = "#95f976";
+            ctx.fillRect(0,90,300,30);
+            ctx.fillStyle = "#76f9e3";
+            ctx.fillRect(0,120,300,30);
+            ctx.fillStyle = "#c476f9";
+            ctx.fillRect(0,150,300,30);
+            ctx.fillStyle = "#f676f9";
+            ctx.fillRect(0,180,300,30);
+        </script>
     </body>
-</html>
-
-<script src="filesystem:https://webmakerapp.com/temporary/script.js">
-</script>
-</body>
 </html>
