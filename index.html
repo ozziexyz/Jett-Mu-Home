@@ -29,15 +29,26 @@
             <h2>My name is Jett Mu</h2>
             <p>I am an aspiring graphic designer/coder. I live in the US and I like to eat chicken ramen. Below are some things I created, including this homepage.</p>
             <br>
+        <table>
+            <tr height="300px">
+                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0
+                ">
+                    <center>
+                        <p style='font-family:cursive;font-size:30px'>Funland</p>
+                        <p style="font-family:sans-serif;font-size:20px">A simple site I made for fun. Hence the name.</p>
+                        <a href="https://web.editey.com/1FP0N6Aafn2a_3D10qoERClXbjApcN889/index.html">
+                            <canvas id="mecanvas" height="210px" width="300px" style="border:1px solid black; background-color:white; text-align:center">No</canvas>
+                        </a>
+                        <br>
+                        <br>
+                        <br>
+                    </center>
+                </td>
+                <td width="50%"></td>
+            </tr>
+        </table>
         </center>
-        <div style="border:2px solid black">
-            <center height="300px" width="400px">
-                <h1 style='font-family:cursive'>Funland</h1>
-                <a href="https://web.editey.com/1FP0N6Aafn2a_3D10qoERClXbjApcN889/index.html">
-                <canvas id="mecanvas" height="210px" width="300px" style="border:1px solid black; background-color:white">No</canvas>
-                </a>
-            </center>
-        </div>
+        
         <script>
             var canv = document.getElementById("mecanvas");
             var ctx = canv.getContext("2d");
@@ -55,6 +66,10 @@
             ctx.fillRect(0,150,300,30);
             ctx.fillStyle = "#f676f9";
             ctx.fillRect(0,180,300,30);
+            ctx.font="50px cursive";
+            ctx.fillStyle="Red";
+            ctx.textAlign="center";
+            ctx.fillText("Funland", canv.width/2, canv.height/2);
         </script>
     </body>
 </html>
