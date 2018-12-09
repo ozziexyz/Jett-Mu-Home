@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Funland</title>
@@ -45,6 +35,15 @@
                 border: 2px solid black;
             }
             #goback{
+                height:40px;
+                font-size:20px;
+                width:75px;
+                font-family:sans-serif;
+                background-color:gold;
+                border: 1px solid silver;
+                border-radius:25%;
+            }
+            #homebutton{
                 height:40px;
                 font-size:20px;
                 width:75px;
@@ -213,6 +212,7 @@ var outcmd
                 document.getElementById("home6").style.display = "none";
                 document.getElementById('spacin').style.display="none";
                 document.getElementById("home7").style.display = "none";
+                document.getElementById("homebutton").style.display = "block";
                 
             }
             function mad(){
@@ -232,6 +232,8 @@ var outcmd
                 document.getElementById('madtext2').style.display="block";
                 document.getElementById('madtext3').style.display="block";
                 document.getElementById('madtext4').style.display="block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
             }
             function madbut(){
                 cmd1 = document.getElementById('madone').value;
@@ -244,6 +246,7 @@ var outcmd
                 document.getElementById('madtext4').innerHTML=cmd4;
             }
             function home(){
+                document.getElementById("homebutton").style.display = "block";
                 document.getElementById('spacin').style.display="block";
                 document.getElementById('home').style.display="block";
                 document.getElementById('home2').style.display="block";
@@ -291,12 +294,15 @@ var outcmd
                 document.getElementById("storebutton1").style.display="none";
                 document.getElementById("storebutton2").style.display="none";
                 document.getElementById("storebutton3").style.display="none";
+                document.getElementById("goback").style.display="none";
             }
             function quote(){
                 reset();
                 document.getElementById("quotp").style.display = "block";
                 document.getElementById("quotout").style.display = "block";
                 document.getElementById("anoth").style.display = "block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
                 var quote = ["Minecraft is a good game that was officially released in 2009.","2 is the only even prime number.","What!","Yo soy Bob, y es estadounidense.","The sadness and guilt flood in like a water leaking through a leak in a boat. The leak causes it to sink, so should I ?","Si, Sabes que lleva un rato mi randote","Red isn't a color. It's a PriMaRy CoLOR!!!","I. Am!#@ Addi..!ct?ed t(o) pun&ct!!a'ti'on?!?!?!","I bombed a kitten orphanage.","The demons fought over him over the bottomless pit. He knew it, he felt it, but he didn't budge. Who doesn't like the sweet release it gives?","I eat food to live. And You?","<p style='color:lightgray'>Invisible!</p>","Oranges smell like an apple. Explain.","Be there, or be 1,4,9,16,25,36,49,64,81,100.","The largest number in the world is one Jillion.","This is the 4x4th quote I made today.","'Eat green bean, be good health yeet,' <br> - Mahatma Gandhi","'Be free, slaves of Canada!' <br>-Martin Luther King",'My locker combination is 5 larger than yours.',"Go to ozziehassel.com to see this website's inspiration.","Enter klopuina into the outputer.","If you can eat food while drinking water, you are superhuman.","23 is a prime number.","1 isn't prime nor composite. Special!!!!"];
                 for (quot=0; quot<=0; quot++){
                     var quotechoice = Math.floor(Math.random()*24);
@@ -308,11 +314,15 @@ var outcmd
                 reset();
                 document.getElementById("mestuff").style.display = "block";
                 document.getElementById("mestuff1").style.display = "block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
             }
             function cante(){  
                 reset();
                 document.getElementById("cantimg").style.display="block";
                 document.getElementById('cantp').style.display="block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
             }
             function naming(){
                 reset();
@@ -321,6 +331,8 @@ var outcmd
                 document.getElementById("lpon").style.display = "block";
                 document.getElementById("anoth2").style.display = "block";
                 document.getElementById("thee").style.display = "block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
                 var firstpart = ["Disturbing","Quality","Scary","Spooky","Alliterate","Dyslexic","Losing",'Winning',"Edible","Crunchy","Wrinkly","Naughty","Very Bad At Losing","","'Gonna Beat You Up'","Amazing","Intellegent","Depressed","Murderous","Nutricious","[Insert Random Adjective Because I ran out of Ideas]","Not Fun"]
                 var secondpart = ["Oranges","Elephants","Potatoes","Intellectuals","Tater Tots","Winners","Losers","Emotional, Empathetic, People Who Care About Your Feelings","Cookies","McDonalds","Tofus","Kids","People","Cupcakes","Toddlers","Amazers","Food Eaters","Omnivores","Carnivores","Herbivores","Hand Sanitizer","Michaelangelo Lovers"]
                 for (namgo=0; namgo<=0; namgo++){
@@ -343,6 +355,8 @@ var outcmd
                 document.getElementById('coolpic').style.display="block";
                 document.getElementById('cooltitle').style.display="block";
                 document.getElementById('coolmid').style.display="block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
                 
             }
             function outputer(){
@@ -354,6 +368,8 @@ var outcmd
                 document.getElementById("outspacing").style.display = "block";
                 document.getElementById("outout").style.display = "block";
                 document.getElementById("outnotout").style.display = "block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
             }
             function outings(){
                 outcmd = document.getElementById("outputin").value.toUpperCase();
@@ -438,6 +454,8 @@ var outcmd
                 document.getElementById("storebutton1").style.display="block";
                 document.getElementById("storebutton2").style.display="block";
                 document.getElementById("storebutton3").style.display="block";
+                document.getElementById("goback").style.display="block";
+                document.getElementById("homebutton").style.display = "none";
             }
             function life(){
                 var lifeop=window.open("","Life Story","height=500,width=600");
@@ -453,6 +471,9 @@ var outcmd
             function diss(){
                 var lifeop=window.open("","Dissssssss","height=500,width=400");
                 lifeop.document.write('<center><p style="font-family:cursive;font-size:50px">Ayyo. You tryna act like you can learn to code, but you lookin like you gonna grow mold. You tryna rap like rapper, but now it just sounds like you eatin paper. Ooh, you typin slow. Ooh, youre site aint glow. If you wanna be a coder who codes, stop doing things that make you slow. OOoooooOOoOoOOoOOOooooOOOOOOoooooOOOOooooOOOOoo</p> </center>');
+            }
+            function jmufun(){
+                var jmfun=window.open("https://jmufun.com","_blank")
             }
       </script>
     </head>
@@ -513,13 +534,9 @@ var outcmd
                     <p id="mestuff1" style="font-family:cursive;display:none;font-size:20px"> My name is Jett Mu, and I live in the US. I'm not a graphic designer/coder yet. Key Words: Yet. Go to ozziehassel.com to see this website's inspiration.</p>
                     
                 </div>
-                <button onclick="home()" style="display:block" id="goback">Home</button>
+                <button onclick="jmufun()" style="display:block" id="homebutton">Home</button>
+                <button onclick="home()" style="display:none" id="goback">Back</button>
             </div>
         </center>
     </body>
-</html>
-
-<script src="filesystem:https://webmakerapp.com/temporary/script.js">
-</script>
-</body>
 </html>
