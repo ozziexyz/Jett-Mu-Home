@@ -1,103 +1,103 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="UTF-8">
-    <title>JM</title>
-    <link rel="shortcut icon" type="image/jpg" href="https://vignette.wikia.nocookie.net/theamazingworldofgumball/images/7/76/Season_3_Louie.png/revision/latest/scale-to-width-down/250?cb=20170415211203">
-    <style>
-        h1{
-            font-family:sans-serif;
-        }
-        h2{
-            font-family:sans-serif;
-        }
-        p{
-            font-family:sans-serif;
-        }
-        link{
-            display:none;
-        }
-        body{
-            background-color:lightblue;
-        }
-        
-    </style>
-    </head>
-    <body>
-        <center>
-            <h1>Hello</h1>
-            <h2>My name is Jett Mu</h2>
-            <p>I am an aspiring graphic designer/coder. I live in the US and I like to eat chicken ramen. Below are some things I created, including this homepage. I like to use mm/dd/yy.</p>
-            <br>
-        <table>
-            <tr height="300px">
-                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0
-                ">
-                    <center>
-                        <p style='font-family:comic sans ms;font-size:30px'>Funland</p>
-                        <p style="font-family:sans-serif;font-size:20px">Published: 12/9/18</p>
-                        <a href="https://jmufun.com/funland" target="_blank">
-                            <canvas id="funlandcanv" height="210px" width="300px" style="border:1px solid black; background-color:white; text-align:center">Your browser doesn't allow Canvases</canvas>
-                        </a>
-                        <br>
-                        <p style="font-family:sans-serif;font-size:20px">Updated: 12/9/18</p>
-                    </center>
-                </td>
-                <td style="">
-                    
-                </td>
-                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0">
-                    <center>
-                        <p style='font-family:comic sans ms;font-size:30px'>Proofs of Things</p>
-                        <p style="font-family:sans-serif;font-size:20px">Published: 12/9/18</p>
-                        <a href="https://jmufun.com/proofs" target="_blank">
-                            <canvas id="proofscanv" height="210px" width="300px" style="border:1px solid black; background-color:white; text-align:center">Your browser doesn't allow Canvases</canvas>
-                        </a>
-                        <br>
-                        <p style="font-family:sans-serif;font-size:20px">Updated: 12/9/18</p>
-                    </center>
-                    
-                </td>
-            </tr>
-        </table>
-        </center>
-        
+        <style>
+            .titl{
+                font-size:45px;
+                font-family:comic sans ms;
+                color:lightblue;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            }
+            .numbs{
+                font-size:45px;
+                font-family:comic sans ms;
+                color:yellow;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                display: inline;
+            }
+            .redo{
+                font-size:20px;
+                font-family:comic sans ms;
+                color:black;
+                background-color:lightgreen;
+                border:2px solid black;
+                height:50px;
+                width:150px;
+                line-height: 80%;
+            }
+            .phrase{
+                font-size:25px;
+                font-family:cursive;
+                color:white;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                line-height: 80%;
+            }
+            .home{
+                font-size:25px;
+                font-family:comic sans ms;
+                color:black;
+                background-color:lightblue;
+                border:2px solid black;
+                border-radius:15%;
+                height:75px;
+                width:250px;
+                line-height: 80%;
+            }
+        </style>
         <script>
-            var canv = document.getElementById("funlandcanv");
-            var ctx = canv.getContext("2d");
-            ctx.fillStyle = "#ff6363";
-            ctx.fillRect(0,0,300,30);
-            ctx.fillStyle = "#ffb042";
-            ctx.fillRect(0,30,300,30);
-            ctx.fillStyle = "#f9ef77";
-            ctx.fillRect(0,60,300,30);
-            ctx.fillStyle = "#95f976";
-            ctx.fillRect(0,90,300,30);
-            ctx.fillStyle = "#76f9e3";
-            ctx.fillRect(0,120,300,30);
-            ctx.fillStyle = "#c476f9";
-            ctx.fillRect(0,150,300,30);
-            ctx.fillStyle = "#f676f9";
-            ctx.fillRect(0,180,300,30);
-            ctx.font="50px comic sans ms";
-            ctx.fillStyle="Red";
-            ctx.textAlign="center";
-            ctx.fillText("Funland", canv.width/2, canv.height/2);
-            var canv2 = document.getElementById("proofscanv");
-            var ctx1 = canv2.getContext("2d");
-            ctx1.fillStyle = "lightyellow";
-            ctx1.fillRect(0,0,300,400);
-            ctx1.beginPath();
-            ctx1.arc(150, 100, 70, 0, 2 * Math.PI, false);
-            ctx1.fillStyle="lightblue";
-            ctx1.fill();
-            context.lineWidth = 5;
-            context.strokeStyle = '#003300';
-            context.stroke();
-            ctx1.font="40px comic sans ms";
-            ctx1.fillStyle="#000000";
-            ctx1.textAlign="center";
-            ctx1.fillText("Proofs", canv2.width/2, canv2.height/2);
+            function load(){
+                var abc1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc2 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc3 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc4 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc5 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var phrase = ["Wonderful...","Deep...","W-what","Splendid...","Amazing...","What a Prophecy","...","Utterly Breathtaking...","Shocking...","Stunning...","Astonishing...","Meaningless...",""];
+                for (rands=0; rands<=0; rand++){
+                    var onepart = Math.floor(Math.random()*26);
+                    var twopart = Math.floor(Math.random()*26);
+                    var thrpart = Math.floor(Math.random()*26);
+                    var foupart = Math.floor(Math.random()*26);
+                    var fivpart = Math.floor(Math.random()*26);
+                    var phrasy = Math.floor(Math.random()*12);
+                    oneout = abc1[onepart];
+                    twoout = abc2[twopart];
+                    throut = abc3[thrpart];
+                    fouout = abc4[foupart];
+                    fivout = abc5[fivpart];
+                    phrout = phrase[phrasy];
+                    document.getElementById('one').innerHTML=oneout;
+                    document.getElementById('two').innerHTML=twoout;
+                    document.getElementById('thr').innerHTML=throut;
+                    document.getElementById('fou').innerHTML=fouout;
+                    document.getElementById('fiv').innerHTML=fivout;
+                    document.getElementById('phr').innerHTML=phrout;
+                }
+            }
+            function back(){
+                var poe = window.open("https://jmufun.com/","_blank")
+                
+            }
+            window.onload = load();
         </script>
+        <meta charset="UTF-8">
+        <title>Cool Words</title>        
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body style="background-color:lightyellow">
+        <center>
+            <h1 class="titl">Cool Words</h1>
+            <h1 class="numbs" id="one"></h1>
+            <h1 class="numbs" id="two"></h1>
+            <h1 class="numbs" id="thr"></h1>
+            <h1 class="numbs" id="fou"></h1>
+            <h1 class="numbs" id="fiv"></h1>
+            <p class="phrase" id="phr"></p>
+            <br>
+            <button onclick="load()" class="redo">Another</button>
+            <br>
+            <hr>
+            <br>
+            <button onclick="back()" class="home">Back to Homepage</button>
+        </center>
     </body>
 </html>
