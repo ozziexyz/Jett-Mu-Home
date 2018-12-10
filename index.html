@@ -37,19 +37,33 @@
                         <p style='font-family:comic sans ms;font-size:30px'>Funland</p>
                         <p style="font-family:sans-serif;font-size:20px">Published: 12/9/18</p>
                         <a href="https://jmufun.com/funland" target="_blank">
-                            <canvas id="mecanvas" height="210px" width="300px" style="border:1px solid black; background-color:white; text-align:center">Your browser doesn't allow Canvases</canvas>
+                            <canvas id="funlandcanv" height="210px" width="300px" style="border:1px solid black; background-color:white; text-align:center">Your browser doesn't allow Canvases</canvas>
                         </a>
                         <br>
                         <p style="font-family:sans-serif;font-size:20px">Updated: 12/9/18</p>
                     </center>
                 </td>
-                <td width="50%"></td>
+                <td style="">
+                    
+                </td>
+                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0">
+                    <center>
+                        <p style='font-family:comic sans ms;font-size:30px'>Proofs of Things</p>
+                        <p style="font-family:sans-serif;font-size:20px">Published: 12/9/18</p>
+                        <a href="https://jmufun.com/proofs" target="_blank">
+                            <canvas id="proofscanv" height="210px" width="300px" style="border:1px solid black; background-color:white; text-align:center">Your browser doesn't allow Canvases</canvas>
+                        </a>
+                        <br>
+                        <p style="font-family:sans-serif;font-size:20px">Updated: 12/9/18</p>
+                    </center>
+                    
+                </td>
             </tr>
         </table>
         </center>
         
         <script>
-            var canv = document.getElementById("mecanvas");
+            var canv = document.getElementById("funlandcanv");
             var ctx = canv.getContext("2d");
             ctx.fillStyle = "#ff6363";
             ctx.fillRect(0,0,300,30);
@@ -69,6 +83,21 @@
             ctx.fillStyle="Red";
             ctx.textAlign="center";
             ctx.fillText("Funland", canv.width/2, canv.height/2);
+            var canv2 = document.getElementById("proofscanv");
+            var ctx1 = canv2.getContext("2d");
+            ctx1.fillStyle = "lightyellow";
+            ctx1.fillRect(0,0,300,400);
+            ctx1.beginPath();
+            ctx1.arc(150, 100, 70, 0, 2 * Math.PI, false);
+            ctx1.fillStyle="lightblue";
+            ctx1.fill();
+            context.lineWidth = 5;
+            context.strokeStyle = '#003300';
+            context.stroke();
+            ctx1.font="40px comic sans ms";
+            ctx1.fillStyle="#000000";
+            ctx1.textAlign="center";
+            ctx1.fillText("Proofs", canv2.width/2, canv2.height/2);
         </script>
     </body>
 </html>
