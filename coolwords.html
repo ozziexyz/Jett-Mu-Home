@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .titl{
+                font-size:45px;
+                font-family:comic sans ms;
+                color:lightblue;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            }
+            .numbs{
+                font-size:45px;
+                font-family:comic sans ms;
+                color:yellow;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                display: inline;
+            }
+            .redo{
+                font-size:20px;
+                font-family:comic sans ms;
+                color:black;
+                background-color:lightgreen;
+                border:2px solid black;
+                height:50px;
+                width:150px;
+                line-height: 80%;
+            }
+            .phrase{
+                font-size:25px;
+                font-family:cursive;
+                color:white;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                line-height: 80%;
+            }
+            .home{
+                font-size:25px;
+                font-family:comic sans ms;
+                color:black;
+                background-color:lightblue;
+                border:2px solid black;
+                border-radius:15%;
+                height:75px;
+                width:250px;
+                line-height: 80%;
+            }
+        </style>
+        <script>
+            function load(){
+                var abc1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc2 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc3 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc4 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var abc5 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",""];
+                var phrase = ["Wonderful...","Deep...","W-what","Splendid...","Amazing...","What a Prophecy","...","Utterly Breathtaking...","Shocking...","Stunning...","Astonishing...","Meaningless...",""];
+                for (rands=0; rands<=0; rand++){
+                    var onepart = Math.floor(Math.random()*26);
+                    var twopart = Math.floor(Math.random()*26);
+                    var thrpart = Math.floor(Math.random()*26);
+                    var foupart = Math.floor(Math.random()*26);
+                    var fivpart = Math.floor(Math.random()*26);
+                    var phrasy = Math.floor(Math.random()*12);
+                    oneout = abc1[onepart];
+                    twoout = abc2[twopart];
+                    throut = abc3[thrpart];
+                    fouout = abc4[foupart];
+                    fivout = abc5[fivpart];
+                    phrout = phrase[phrasy];
+                    document.getElementById('one').innerHTML=oneout;
+                    document.getElementById('two').innerHTML=twoout;
+                    document.getElementById('thr').innerHTML=throut;
+                    document.getElementById('fou').innerHTML=fouout;
+                    document.getElementById('fiv').innerHTML=fivout;
+                    document.getElementById('phr').innerHTML=phrout;
+                }
+            }
+            function back(){
+                var poe = window.open("https://jmufun.com/","_blank")
+                
+            }
+            window.onload = load;
+        </script>
+        <meta charset="UTF-8">
+        <title>Cool Words</title>        
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body style="background-color:lightyellow">
+        <center>
+            <h1 class="titl">Cool Words</h1>
+            <h1 class="numbs" id="one"></h1>
+            <h1 class="numbs" id="two"></h1>
+            <h1 class="numbs" id="thr"></h1>
+            <h1 class="numbs" id="fou"></h1>
+            <h1 class="numbs" id="fiv"></h1>
+            <p class="phrase" id="phr"></p>
+            <br>
+            <button onclick="load()" class="redo">Another</button>
+            <br>
+            <hr>
+            <br>
+            <button onclick="back()" class="home">Back to Homepage</button>
+        </center>
+    </body>
+</html>
+
+<script src="filesystem:https://webmakerapp.com/temporary/script.js">
+</script>
+</body>
+</html>
