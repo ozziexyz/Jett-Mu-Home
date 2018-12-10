@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <title>JM</title>
-    <link rel="shortcut icon" type="image/jpg" href="https://cdn1.medicalnewstoday.com/content/images/articles/279/279176/cantaloupe-cross-section.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="https://vignette.wikia.nocookie.net/theamazingworldofgumball/images/7/76/Season_3_Louie.png/revision/latest/scale-to-width-down/250?cb=20170415211203">
     <style>
         h1{
             font-family:sans-serif;
@@ -59,6 +59,19 @@
                     
                 </td>
             </tr>
+            <tr>
+                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0">
+                    <center>
+                        <p style='font-family:comic sans ms;font-size:30px'>Cool Words</p>
+                        <p style="font-family:sans-serif;font-size:20px">Published: 12/10/18</p>
+                        <a href="https://jmufun.com/coolwords" target="_blank">
+                            <canvas id="coolwcanv" height="210px" width="300px" style="border:1px solid black;text-align:center">Your browser doesn't allow Canvases</canvas>
+                        </a>
+                        <br>
+                        <p style="font-family:sans-serif;font-size:20px">Updated: 12/10/18</p>
+                    </center>
+                </td>
+            </tr>
         </table>
         </center>
         
@@ -94,10 +107,21 @@
             context.lineWidth = 5;
             context.strokeStyle = '#003300';
             context.stroke();
-            ctx1.font="40px comic sans ms";
-            ctx1.fillStyle="#000000";
-            ctx1.textAlign="center";
-            ctx1.fillText("Proofs", canv2.width/2, canv2.height/2);
+        </script>
+        <script>
+            var canv3 = document.getElementById("coolwcanv");
+            var ctx3 = canv3.getContext("2d");
+            ctx3.fillStyle = "lightyellow";
+            ctx3.fillRect(0,0,300,53);
+            ctx3.fillStyle="lightblue";
+            ctx3.fillRect(0,53,300,106);
+            ctx3.fillStyle="lightyellow";
+            ctx3.fillRect(0,159,300,53);
+            ctx3.font="45px comic sans ms";
+            ctx3.fillStyle="blue";
+            ctx3.textAlign="center";
+            ctx3.fillText("Cool Words", canv.width/2, canv.height/2);
+            
         </script>
     </body>
 </html>
