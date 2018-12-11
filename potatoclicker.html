@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Potato</title>
+        <script>
+            var afarmers = 0;
+            var atractors = 0;
+            var aworkers = 0;
+            var alabs = 0;
+            var afactories = 0;
+            var ashops = 0;
+            var boost = 1;
+            var totalps = 0;
+            var poc = 1;
+            var tp = 0;
+            var farmers= 0;
+            var farmerCost = 20;
+            var tractors=0;
+            var tractorcost = 100;
+            var workers = 0;
+            var workercost = 200;
+            var labs = 0;
+            var labcost = 400;
+            var factories = 0;
+            var factorycost = 1000;
+            var shops = 0;
+            var shopcost = 5000;
+            var incfarmcost = 150;
+            var dilworcost=500;
+            var adscost=750;
+            var freecost = 100;
+            var totalstruc=1;
+            function adding(number){
+                tp = tp + number;
+                document.getElementById("display").innerHTML = tp;
+            }
+            function buyFarmer(){
+                if(tp>= farmerCost){
+                    farmers=farmers + 1;
+                    tp= tp-farmerCost;
+                    farmerCost = Math.floor(20 * Math.pow(1.05,farmers));
+                    document.getElementById("farmercost").innerHTML=farmerCost;
+                    document.getElementById("farmers").innerHTML=farmers;
+                    document.getElementById("display").innerHTML=tp;
+                }
+                
+            }
+            function buyTractor(){
+                if(tp>= tractorcost){
+                    tractors=tractors + 1;
+                    tp= tp-tractorcost;
+                    tractorcost = Math.floor(100 * Math.pow(1.05,tractors));
+                    document.getElementById("tractorcost").innerHTML=tractorcost;
+                    document.getElementById("tractors").innerHTML=tractors;
+                    document.getElementById("display").innerHTML=tp;
+                }
+                
+            }
+            function buyWorker(){
+                if(tp>= workercost){
+                    workers=workers + 1;
+                    tp= tp-workercost;
+                    workercost = Math.floor(200 * Math.pow(1.05,workers));
+                    document.getElementById("workercost").innerHTML=workercost;
+                    document.getElementById("workers").innerHTML=workers;
+                    document.getElementById("display").innerHTML=tp;
+                }
+                
+            }
+            function buyLab(){
+                if(tp>= labcost){
+                    labs=labs + 1;
+                    tp= tp-labcost;
+                    labcost = Math.floor(400 * Math.pow(1.05,labs));
+                    document.getElementById("labcost").innerHTML=labcost;
+                    document.getElementById("labs").innerHTML=labs;
+                    document.getElementById("display").innerHTML=tp;
+                }
+                
+            }
+            function buyFact(){
+                if(tp>= factorycost){
+                    factories=factories + 1;
+                    tp= tp-factorycost;
+                    factorycost = Math.floor(1000 * Math.pow(1.05,factories));
+                    document.getElementById("factorycost").innerHTML=factorycost;
+                    document.getElementById("factories").innerHTML=factories;
+                    document.getElementById("display").innerHTML=tp;
+                }
+            }
+            function buyShop(){
+                if(tp>= shopcost){
+                    shops=shops + 1;
+                    tp= tp-factorycost;
+                    shopcost = Math.floor(5000 * Math.pow(1.05,shops));
+                    document.getElementById("shopcost").innerHTML=shopcost;
+                    document.getElementById("shops").innerHTML=shops;
+                    document.getElementById("display").innerHTML=tp;
+                }
+            }
+            function upone(){
+                if(tp>=incfarmcost){
+                    poc = poc+1
+                    tp= tp-incfarmcost;
+                    document.getElementById("display").innerHTML = tp;
+                    document.getElementById('Incfarm').style.display="none";
+                    document.getElementById('Incfarmval').style.display="none";
+                    document.getElementById('Incfarmcost').style.display="none";
+                }
+            }
+            function upten(){
+                if(tp>=dilworcost){
+                    poc = poc+10
+                    tp= tp-dilworcost;
+                    document.getElementById("display").innerHTML = tp;
+                    document.getElementById('DilWor').style.display="none";
+                    document.getElementById('DilWorval').style.display="none";
+                    document.getElementById('DilWorcost').style.display="none";
+                }
+            }
+            function ads(){
+                if(tp>=adscost){
+                    boost = boost *1.5;
+                    tp= tp-adscost;
+                    document.getElementById("display").innerHTML = tp;
+                    document.getElementById('ads').style.display="none";
+                    document.getElementById('adsval').style.display="none";
+                    document.getElementById('adscost').style.display="none";
+                }
+            }
+            function randfree(){
+                if(tp>=freecost && totalstruc>0){
+                    var randy = Math.floor(Math.random()*totalstruc);
+                    if(randy==0 && farmers>0){
+                        farmers = farmers + 1;
+                        document.getElementById('farmers').innerHTML = farmers;
+                    }
+                    else if(randy==1 && tractors>0){
+                        tractors = tractors + 1;
+                        document.getElementById('tractors').innerHTML = tractors;
+                    }
+                    else if(randy==2 && workers>0){
+                        workers = workers + 1;
+                        document.getElementById('workers').innerHTML = workers;
+                    }
+                    else if(randy==3 && labs>0){
+                        labs = labs + 1;
+                        document.getElementById('labs').innerHTML = labs;
+                    }
+                    else if(randy==4 && factories>0){
+                        factories = factories + 1;
+                        document.getElementById('factories').innerHTML = factories;
+                    }
+                    else{
+                        boost = boost*2;
+                    }
+                    tp= tp-freecost;
+                    freecost = freecost*2;
+                    document.getElementById("display").innerHTML = tp;
+                    document.getElementById("freecost").innerHTML = freecost;
+                }
+            }
+            function win(){
+                if(tp>=10000){
+                    document.write("<center><p style='font-size:100px;color:yellow;font-family:cursive'>You won!</p></center>");
+                }
+            }
+            window.setInterval(function(){
+                if(farmers>0){
+                    afarmers=1;
+                }
+                if(tractors>0){
+                    atractors=1;
+                }
+                if(workers>0){
+                    aworkers=1;
+                }
+                if(labs>0){
+                    alabs=1;
+                }
+                if(factories>0){
+                    afactories=1;
+                }
+                if(shops>0){
+                    ashops=1;
+                }
+                totalstruc = afarmers + atractors + aworkers + alabs + afactories + ashops;
+                var rand=Math.floor(Math.random()*1000);
+                var rand1=Math.floor(Math.random()*100);
+                if(rand<=4){
+                    boost=boost * 0.9;
+                    document.getElementById("event").innerHTML="Event: Potato Blight!";
+                    document.body.style.backgroundColor = "lightblue";
+                }
+                else if(5<=rand && rand<14){
+                    boost=boost * 1.15;
+                    document.getElementById("event").innerHTML="Event: Potato Bloom!";
+                    document.body.style.backgroundColor = "lightyellow";
+                }
+                else if(rand==15 && rand1==15){
+                    boost=boost * 0.1;
+                    document.getElementById("event").innerHTML="Event: Nuclear Explosion!";
+                    document.body.style.backgroundColor = "red";
+                }
+                else if(rand>=16 && rand<20){
+                    tp=Math.round(tp * 1.4);
+                    document.getElementById("event").innerHTML="Event: Generous Donation!";
+                    document.getElementById("display").innerHTML = tp;
+                    document.body.style.backgroundColor = "lime";
+                }
+                else{
+                    document.getElementById("event").innerHTML="Event: Nothing";
+                    document.body.style.backgroundColor = "white";
+                }
+                totalps=Math.round((farmers + 5*tractors + 10*workers + 20*labs + 50*factories + 250*shops)*boost);
+                adding(totalps);
+                if(poc==2){
+                    document.getElementById('clicker').src = 'https://previews.123rf.com/images/kostik2photo/kostik2photo1511/kostik2photo151100196/49150877-root-vegetables-isolated-on-white-two-potatoes-isolated-on-white-background-.jpg';
+                }
+                else if(poc>=10){
+                    document.getElementById('clicker').src = 'https://thecouponproject.com/wp-content/uploads/2010/04/1-Medium-1024x683.jpg';
+                }
+                else{
+                    document.getElementById('clicker').src = "https://foreignpolicymag.files.wordpress.com/2009/10/inbox_potato21.jpg";
+                }
+                document.getElementById('persec').innerHTML="Potatoes per sec: " + totalps;
+            }, 1000);
+        </script>   
+        <style>
+            .buy{
+                text-align: center;
+                height:60px;
+                width:130px;
+                background-color: lightblue;
+                font-size:20px;
+                border:2px solid black;
+                font-family:comic sans ms;
+            }
+            .title{
+                font-family:comic sans ms;
+                font-size:45px;
+            }
+            .subtitle{
+                font-family:comic sans ms;
+                font-size:35px;
+                line-height:50%;
+            }
+            .but{
+                border:2px solid black;
+                border-radius:10%;
+                background-color: #ffffff;
+            }
+            #clicker{
+                border-width:0px;
+                border-radius:10%;
+                background-color: #ffffff;
+                height:300px;
+            }
+            #display{
+                line-height:50%;
+                font-size:30px;
+                font-family:comic sans ms;
+            }
+            #persec{
+                line-height:50%;
+                font-size:30px;
+                font-family:comic sans ms;
+            }
+            .stat{
+                display:inline;
+                font-size:20px;
+                font-family:comic sans ms;
+            }
+            .def{
+                font-size:25px;
+                font-family:comic sans ms;
+            }
+            .subdef{
+                font-size:20px;
+                font-family:comic sans ms;
+                line-height:80%;
+            }
+            #event{
+                display:inline;
+                font-size:20px;
+                font-family:comic sans ms;
+            }
+        </style>
+        <link rel="shortcut icon" type="image/jpg" href="https://res.cloudinary.com/hellofresh/image/upload/f_auto,fl_lossy,q_auto,w_640/v1/hellofresh_s3/image/554a3abff8b25e1d268b456d.png">
+    </head>
+    <body id="background">
+        <center>
+            <h1 class="title">The Potato Clicker</h1>
+            <button class="but" onclick="adding(poc)">
+                <img id="clicker" src="https://foreignpolicymag.files.wordpress.com/2009/10/inbox_potato21.jpg">
+            </button>
+            <p class="subtitle">Total Potato Bucks</p>
+            <p id="display">0</p>
+            <p id="persec">Potatoes per sec: 0</p>
+            <p id="event">Event: Nothing</p>
+            <br>
+        </center>
+        <h1 class='subtitle'>Structures (cost,amount,value)</h1>
+        <button onclick="buyFarmer()" class="buy">Farmer</button> 
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="farmercost">20</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="farmers">0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">1</p>
+        <br><br>
+        <button onclick="buyTractor()" class="buy">Tractor</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractorcost">100</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractors">0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">5</p>
+        <br><br>
+        <button onclick="buyWorker()" class="buy">Potato Tree</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="workercost">200</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="workers">0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">10</p>
+        <br><br>
+        <button onclick="buyLab()" class="buy">Potato Lab</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labcost">400</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labs">0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">20</p>
+        <br><br>
+        <button onclick="buyFact()" class="buy">Factory</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factorycost">1000</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factories">0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">50</p>
+        <br><br>
+        <button onclick="buyShop()" class="buy">Shopping Center</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="shopcost">5000</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="shops">0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">250</p>
+        <br><br>
+        <hr>
+        <h1 class="subtitle">Upgrades (Value,Cost)</h1>
+        <button onclick="upone()" class="buy" id="Incfarm">Increase Farm Size</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="Incfarmval">+1 Potato per Click</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="Incfarmcost">150</p>
+        <br><br>
+        <button onclick="upten()" class="buy" id="DilWor">Diligent Workers</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="DilWorval">+10 Potato per Click</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="DilWorcost">500</p>
+        <br><br>
+        <button onclick="ads()" class="buy" id="ads">Ads</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="adsval">50% PPS Boost</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="adscost">750</p>
+        <br><br>
+        <button onclick="randfree()" class="buy" id="free">Ebay Shopping</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="freeval">Random Already Owned Structure or A 100% PPS Boost</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="freecost">100</p>
+        <hr>
+        <p class="subtitle">Glossary</p>
+        <p class="def">Events (Name: Background change. Effect. Chance every second)</p>
+        <p class="subdef">Potato Blight: Background turns light blue. PPS drops by 10%. 0.5% Chance.</p>
+        <p class="subdef">Potato Bloom: Background turns light yellow. PPS increases by 15%. 1% Chance.</p>
+        <p class="subdef">Nuclear Explosion: Background turns red. PPS drops by 90%. 0.001% Chance.</p>
+        <p class="subdef">Generous Donation: Background turns lime. Potato bucks increase by 40%. </p>
+        <hr>
+        <center>
+            <button onclick="win()" class="buy" style="background-color:lightgreen">Win Game (10000)</button>
+            <br>
+            <small>To be updated</small>
+        </center>
+    </body>
+</html>
+
+<script src="filesystem:https://webmakerapp.com/temporary/script.js">
+</script>
+</body>
+</html>
