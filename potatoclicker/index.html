@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
     <head>
         <meta charset="UTF-8">
         <title>Potato</title>
@@ -36,6 +26,8 @@
             var factorycost = 1000;
             var shops = 0;
             var shopcost = 5000;
+            var mines = 0;
+            var minecost = 5000;
             var incfarmcost = 150;
             var dilworcost=500;
             var adscost=750;
@@ -102,10 +94,20 @@
             function buyShop(){
                 if(tp>= shopcost){
                     shops=shops + 1;
-                    tp= tp-factorycost;
+                    tp= tp-shopcost;
                     shopcost = Math.floor(5000 * Math.pow(1.05,shops));
                     document.getElementById("shopcost").innerHTML=shopcost;
                     document.getElementById("shops").innerHTML=shops;
+                    document.getElementById("display").innerHTML=tp;
+                }
+            }
+            function buyMine(){
+                if(tp>= minecost){
+                    mines=mines + 1;
+                    tp= tp-minecost;
+                    minecost = Math.floor(10000 * Math.pow(1.05,mines));
+                    document.getElementById("minecost").innerHTML=minecost;
+                    document.getElementById("mines").innerHTML=mines;
                     document.getElementById("display").innerHTML=tp;
                 }
             }
@@ -141,7 +143,8 @@
             }
             function randfree(){
                 if(tp>=freecost && totalstruc>0){
-                    var randy = Math.floor(Math.random()*totalstruc);
+                    var increasing =1 ;
+                    var randy = Math.floor(Math.random()*usestruc);
                     if(randy==0 && farmers>0){
                         farmers = farmers + 1;
                         document.getElementById('farmers').innerHTML = farmers;
@@ -166,15 +169,20 @@
                         boost = boost*2;
                     }
                     tp= tp-freecost;
-                    freecost = freecost*2;
+                    freecost = Math.floor(100 * Math.pow(1.3,increasing));
+                    increasing = increasing + 1;
                     document.getElementById("display").innerHTML = tp;
                     document.getElementById("freecost").innerHTML = freecost;
                 }
             }
             function win(){
-                if(tp>=10000){
-                    document.write("<center><p style='font-size:100px;color:yellow;font-family:cursive'>You won!</p></center>");
+                if(tp>=50000){
+                    document.body.style.backgroundColor= "gold";
+                    document.write("<center><p style='font-size:100px;color:black;font-family:cursive'>You won!</p></center>");
                 }
+            }
+            function jmufun(){
+                var homey=window.open("https://jmufun.com/","_blank")
             }
             window.setInterval(function(){
                 if(farmers>0){
@@ -196,12 +204,13 @@
                     ashops=1;
                 }
                 totalstruc = afarmers + atractors + aworkers + alabs + afactories + ashops;
-                var rand=Math.floor(Math.random()*1000);
-                var rand1=Math.floor(Math.random()*100);
+                usestruc = totalstruc + 3;
+                var rand=Math.floor(Math.random()*2000);
+                var rand1=Math.floor(Math.random()*1000);
                 if(rand<=4){
                     boost=boost * 0.9;
                     document.getElementById("event").innerHTML="Event: Potato Blight!";
-                    document.body.style.backgroundColor = "lightblue";
+                    document.body.style.backgroundColor = "#da23ff";
                 }
                 else if(5<=rand && rand<14){
                     boost=boost * 1.15;
@@ -218,6 +227,12 @@
                     document.getElementById("event").innerHTML="Event: Generous Donation!";
                     document.getElementById("display").innerHTML = tp;
                     document.body.style.backgroundColor = "lime";
+                }
+                else if(rand>=21 && rand<25){
+                    tp=Math.round(tp * 0.9);
+                    document.getElementById("event").innerHTML="Event: Robbery!";
+                    document.getElementById("display").innerHTML = tp;
+                    document.body.style.backgroundColor = "#0017af";
                 }
                 else{
                     document.getElementById("event").innerHTML="Event: Nothing";
@@ -241,11 +256,32 @@
             .buy{
                 text-align: center;
                 height:60px;
-                width:130px;
+                width:150px;
                 background-color: lightblue;
                 font-size:20px;
                 border:2px solid black;
                 font-family:comic sans ms;
+                vertical-align:middle;
+            }
+            .home{
+                text-align: center;
+                height:60px;
+                width:150px;
+                background-color: lime;
+                font-size:20px;
+                border:2px solid black;
+                font-family:comic sans ms;
+                vertical-align:middle;
+            }
+            .win{
+                text-align: center;
+                height:80px;
+                width:200px;
+                background-color: lime;
+                font-size:20px;
+                border:2px solid black;
+                font-family:comic sans ms;
+                vertical-align:middle;
             }
             .title{
                 font-family:comic sans ms;
@@ -317,30 +353,35 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="farmers">0</p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">1</p>
         <br><br>
-        <button onclick="buyTractor()" class="buy">Tractor</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractorcost">100</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractors">0</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">5</p>
+        <button onclick="buyTractor()" class="buy" id = "tractbut">Tractor</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractorcost" >100</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractors" >0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="tractval" >5</p>
         <br><br>
-        <button onclick="buyWorker()" class="buy">Potato Tree</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="workercost">200</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="workers">0</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">10</p>
+        <button onclick="buyWorker()" class="buy" id = "workbut">Potato Tree</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="workercost" >200</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="workers" >0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id ="workval" >10</p>
         <br><br>
-        <button onclick="buyLab()" class="buy">Potato Lab</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labcost">400</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labs">0</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">20</p>
+        <button onclick="buyLab()" class="buy" id = "labbut">Potato Lab</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labcost" >400</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labs" >0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="labval" >20</p>
         <br><br>
-        <button onclick="buyFact()" class="buy">Factory</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factorycost">1000</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factories">0</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">50</p>
+        <button onclick="buyFact()" class="buy" id = "factbut">Factory</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factorycost" >1000</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factories" >0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="factval" >50</p>
         <br><br>
-        <button onclick="buyShop()" class="buy">Shopping Center</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="shopcost">5000</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="shops">0</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat">250</p>
+        <button onclick="buyShop()" class="buy" id = "shopbut">Shopping Center</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="shopcost" >5000</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="shops" >0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id = "shopval" >250</p>
+        <br><br>
+        <button onclick="buyMine()" class="buy" id = "minebut">Potato Mine</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="minecost" >10000</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="mines" >0</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="stat" id="mineval" >500</p>
         <br><br>
         <hr>
         <h1 class="subtitle">Upgrades (Value,Cost)</h1>
@@ -362,20 +403,19 @@
         <hr>
         <p class="subtitle">Glossary</p>
         <p class="def">Events (Name: Background change. Effect. Chance every second)</p>
-        <p class="subdef">Potato Blight: Background turns light blue. PPS drops by 10%. 0.5% Chance.</p>
-        <p class="subdef">Potato Bloom: Background turns light yellow. PPS increases by 15%. 1% Chance.</p>
-        <p class="subdef">Nuclear Explosion: Background turns red. PPS drops by 90%. 0.001% Chance.</p>
-        <p class="subdef">Generous Donation: Background turns lime. Potato bucks increase by 40%. </p>
+        <p class="subdef">Potato Blight: Background turns light purple. PPS drops by 10%. 0.25% Chance.</p>
+        <p class="subdef">Potato Bloom: Background turns light yellow. PPS increases by 15%. 0.5% Chance.</p>
+        <p class="subdef">Nuclear Explosion: Background turns red. PPS drops by 90%. 0.00005% Chance.</p>
+        <p class="subdef">Generous Donation: Background turns lime. Potato bucks increase by 40%. 0.25% Chance</p>
+        <p class="subdef">Robbery: Background turns dark blue. Potato bucks decrease by 10%. 0.25% Chance</p>
         <hr>
         <center>
-            <button onclick="win()" class="buy" style="background-color:lightgreen">Win Game (10000)</button>
+            <button onclick="win()" class="win" style="background-color:lightgreen" height="80px" width="200px">Win Game (50000)</button>
             <br>
-            <small>To be updated</small>
+            <small>Subject to updates</small>
+            <br>
+            <hr>
+            <button onclick="jmufun()" class ="home">Home</button>
         </center>
     </body>
-</html>
-
-<script src="filesystem:https://webmakerapp.com/temporary/script.js">
-</script>
-</body>
 </html>
