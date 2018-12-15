@@ -33,6 +33,7 @@
             var adscost=750;
             var freecost = 100;
             var totalstruc=1;
+            var increasing =1 ;
             function adding(number){
                 tp = tp + number;
                 document.getElementById("display").innerHTML = tp;
@@ -143,7 +144,6 @@
             }
             function randfree(){
                 if(tp>=freecost && totalstruc>0){
-                    var increasing =1 ;
                     var randy = Math.floor(Math.random()*usestruc);
                     if(randy==0 && farmers>0){
                         farmers = farmers + 1;
