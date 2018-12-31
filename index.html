@@ -53,7 +53,6 @@
                         <br>
                         <p style="font-family:sans-serif;font-size:20px">Updated: 12/9/18</p>
                     </center>
-                    
                 </td>
             </tr>
             <tr height="300px">
@@ -77,6 +76,18 @@
                         </a>
                         <br>
                         <p style="font-family:sans-serif;font-size:20px">Updated: 12/12/18</p>
+                    </center>
+                </td>
+            </tr>
+            <tr height="300px">
+                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0">
+                    <center>
+                        <p style='font-family:comic sans ms;font-size:30px'>Number Fun</p>
+                        <p style="font-family:sans-serif;font-size:20px">Published: 12/31/18</p>
+                        <a href="https://jmufun.com/Numberfun" target="_blank">
+                            <canvas id="numfuncanv" height="210px" width="300px" style="border:1px solid black;text-align:center">Your browser doesn't allow Canvases</canvas>
+                        </a>
+                        <p style="font-family:sans-serif;font-size:20px">Updated: 12/31/18</p>
                     </center>
                 </td>
             </tr>
@@ -129,7 +140,14 @@
             ctx3.fillStyle="blue";
             ctx3.textAlign="center";
             ctx3.fillText("Cool Words", canv.width/2, canv.height/2);
-            
+            var canv4 = document.getElementById('numfuncanv');
+            var ctx4 = canv4.getContext("2d");
+            ctx4.fillStyle="#ffeabc";
+            ctx4.fillRect(0,0,300,210);
+            ctx4.fillStyle="black";
+            ctx4.textAlign="center";
+            ctx4.font="45px comic sans ms";
+            ctx4.fillText("1 2 3", canv.width/2, canv.height/2);
         </script>
     </body>
 </html>
