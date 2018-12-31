@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Number Fun</title>
+        <script>
+            var rlow;
+            var rhigh;
+            var rpast = 0;
+            var rcur;
+            var converter;
+            var base;
+            function rgo(){
+                rlow = document.getElementById('low').value;
+                rhigh= document.getElementById('high').value;
+                if(isNaN(rhigh)||isNaN(rlow)){
+                    document.getElementById('randout').innerHTML="Please only enter numbers, mKay?";
+                }
+                else if(rhigh==""||rlow==""){
+                    document.getElementById('randout').innerHTML="Please enter only numbers, mKay?";
+                }
+                else if(parseInt(rhigh)<parseInt(rlow)){
+                    document.getElementById('randout').innerHTML="Please make the max higher than the min, mKay?";
+                }
+                else if(rhigh>=(100000)||rlow<=(-100000)){
+                    document.getElementById('randout').innerHTML="Please make the numbers between -100000 and 100000, mKay?";
+                }
+                else{
+                    var lowr = parseInt(rlow);
+                    var rcur = Math.floor(Math.random()*(rhigh - rlow + 1)) + lowr;
+                    document.getElementById('randout').innerHTML=rcur;
+                    rpast = rcur; 
+                }
+            }
+            function congo(){
+                var conouty = "";
+                base = document.getElementById("conbase").value;
+                var conmain = 0;
+                converter = document.getElementById("connum").value;
+                if (isNaN(converter)||isNaN(base)){
+                    document.getElementById("conout").innerHTML="Please make the inputs integers, mKay?";
+                }
+                else if(converter==""||base==""){
+                    document.getElementById("conout").innerHTML="Please fill the inputs integers, mKay?";
+                }
+                else if(parseInt(base)>=37||parseInt(base)<2){
+                    document.getElementById("conout").innerHTML="Please make the base between 2 and 36, mKay?";
+                }
+                else{
+                    var conbase = parseInt(base);
+                    var connumy = parseInt(converter);
+                    while (connumy>0){
+                        conmain = connumy%conbase;
+                        connumy = (connumy-conmain)/base;
+                        if (conmain==10){
+                            conmain = "A";
+                            conouty = conmain + conouty;
+                            conmain = 10;
+                        }
+                        else if (conmain==11){
+                            conmain = "B";
+                            conouty = conmain + conouty;
+                            conmain = 11;
+                        }
+                        else if (conmain==12){
+                            conmain = "C";
+                            conouty = conmain + conouty;
+                            conmain = 12;
+                        }
+                        else if (conmain==13){
+                            conmain = "D";
+                            conouty = conmain + conouty;
+                            conmain = 13;
+                        }
+                        else if (conmain==14){
+                            conmain = "E";
+                            conouty = conmain + conouty;
+                            conmain = 14;
+                        }
+                        else if (conmain==15){
+                            conmain = "F";
+                            conouty = conmain + conouty;
+                            conmain = 15;
+                        }
+                        else if (conmain==16){
+                            conmain = "G";
+                            conouty = conmain + conouty;
+                            conmain = 16;
+                        }
+                        else if (conmain==17){
+                            conmain = "H";
+                            conouty = conmain + conouty;
+                            conmain = 17;
+                        }
+                        else if (conmain==18){
+                            conmain = "I";
+                            conouty = conmain + conouty;
+                            conmain = 18;
+                        }
+                        else if (conmain==19){
+                            conmain = "J";
+                            conouty = conmain + conouty;
+                            conmain = 19;
+                        }
+                        else if (conmain==20){
+                            conmain = "K";
+                            conouty = conmain + conouty;
+                            conmain = 20;
+                        }
+                        else if (conmain==21){
+                            conmain = "L";
+                            conouty = conmain + conouty;
+                            conmain = 21;
+                        }
+                        else if (conmain==22){
+                            conmain = "M";
+                            conouty = conmain + conouty;
+                            conmain = 22;
+                        }
+                        else if (conmain==23){
+                            conmain = "N";
+                            conouty = conmain + conouty;
+                            conmain = 23;
+                        }
+                        else if (conmain==24){
+                            conmain = "O";
+                            conouty = conmain + conouty;
+                            conmain = 24;
+                        }
+                        else if (conmain==25){
+                            conmain = "P";
+                            conouty = conmain + conouty;
+                            conmain = 25;
+                        }
+                        else if (conmain==26){
+                            conmain = "Q";
+                            conouty = conmain + conouty;
+                            conmain = 26;
+                        }
+                        else if (conmain==27){
+                            conmain = "R";
+                            conouty = conmain + conouty;
+                            conmain = 27;
+                        }
+                        else if (conmain==28){
+                            conmain = "S";
+                            conouty = conmain + conouty;
+                            conmain = 28;
+                        }
+                        else if (conmain==29){
+                            conmain = "T";
+                            conouty = conmain + conouty;
+                            conmain = 29;
+                        }
+                        else if (conmain==30){
+                            conmain = "U";
+                            conouty = conmain + conouty;
+                            conmain = 30;
+                        }
+                        else if (conmain==31){
+                            conmain = "V";
+                            conouty = conmain + conouty;
+                            conmain = 31;
+                        }
+                        else if (conmain==32){
+                            conmain = "W";
+                            conouty = conmain + conouty;
+                            conmain = 32;
+                        }
+                        else if (conmain==33){
+                            conmain = "X";
+                            conouty = conmain + conouty;
+                            conmain = 33;
+                        }
+                        else if (conmain==34){
+                            conmain = "Y";
+                            conouty = conmain + conouty;
+                            conmain = 34;
+                        }
+                        else if (conmain==35){
+                            conmain = "Z";
+                            conouty = conmain + conouty;
+                            conmain = 35;
+                        }
+                        else{
+                            conouty = conmain + conouty;
+                        }
+                    document.getElementById('conout').innerHTML=conouty;
+                    }
+                }
+            }
+        </script>   
+        <style>
+            .title{
+                line-height:0%;
+                font-family:comic sans ms;
+                font-size:45px;
+                -webkit-animation: titl 1s infinite; 
+                -ms-animation: titl 1s infinite;
+                animation: titl 1s infinite; 
+                text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+            }
+            @keyframes titl{
+                0%{color:black;}
+                50%{color:white;}
+                100%{color:black;}
+            }
+            @-webkit-keyframes titl{
+                0%{color:black;}
+                50%{color:white;}
+                100%{color:black;}
+            }
+            @-ms-keyframes titl{
+                0%{color:black;}
+                50%{color:white;}
+                100%{color:black;}
+            }
+            .subtitle{
+                line-height:0%;
+                font-family:comic sans ms;
+                font-size:35px;
+            }
+            .inps{
+                width:200px;
+                font-family:comic sans ms;
+                text-align:middle;
+            }
+            .text{
+                font-family:comic sans ms;
+                font-size:25px;
+                line-height:25%;
+                display:block;
+            }
+            ::-webkit-input-placeholder {
+               text-align: center;
+            }
+            
+            :-moz-placeholder { /* Firefox 18- */
+               text-align: center;  
+            }
+            
+            ::-moz-placeholder {  /* Firefox 19+ */
+               text-align: center;  
+            }
+            
+            :-ms-input-placeholder {  
+               text-align: center; 
+            }
+            #randbut{
+                height:40px;
+                width:240px;
+                background-color:white;
+                font-family:comic sans ms;
+                font-size:20px;
+                border:1px solid black;
+            }
+            #conbut{
+                height:40px;
+                width:240px;
+                background-color:lightgreen;
+                font-family:comic sans ms;
+                font-size:20px;
+                border:1px solid black;
+            }
+            </style>
+    </head>
+    <body style="background-color:#ffeabc">
+        <center>
+            <p class="title">Number Fun!</p>
+            <hr>
+            <p class="subtitle">Random Number Generator</p>
+            <p id="randout" class="text">0</p>
+            <input class="inps" id="low" placeholder="Min"><br>
+            <input class="inps" id="high" placeholder="Max"><br><br>
+            <button onclick="rgo()" id="randbut">Generate</button>
+            <hr>
+            <p class="subtitle">Base Ten Converter</p>
+            <p id="conout" class="text">0</p>
+            <input class="inps" id="connum" placeholder="Number to Convert (Base 10)"><br>
+            <input class="inps" id="conbase" placeholder="Base"><br><br>
+            <button onclick="congo()" id="conbut">Go</button>
+            <hr>
+            <p class="subtitle"></p>
+        </center>
+    </body>
+</html>
+
+<script src="filesystem:https://webmakerapp.com/temporary/script.js">
+</script>
+</body>
+</html>
