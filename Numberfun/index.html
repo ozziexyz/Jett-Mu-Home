@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Number Fun</title>
+        <link rel="shortcut icon" type="image/jpg" href="https://www.humanbenchmark.com/images/icons/numbers.png">
         <script>
             var rlow;
             var rhigh;
@@ -49,9 +40,6 @@
                 converter = document.getElementById("connum").value;
                 if (isNaN(converter)||isNaN(base)){
                     document.getElementById("conout").innerHTML="Please make the inputs integers, mKay?";
-                }
-                else if(converter==""||base==""){
-                    document.getElementById("conout").innerHTML="Please fill the inputs integers, mKay?";
                 }
                 else if(parseInt(base)>=37||parseInt(base)<2){
                     document.getElementById("conout").innerHTML="Please make the base between 2 and 36, mKay?";
@@ -199,6 +187,9 @@
                     }
                 }
             }
+            function home(){
+                var jmfun=window.open("https://jmufun.com","_blank");
+            }
         </script>   
         <style>
             .title{
@@ -272,6 +263,15 @@
                 font-size:20px;
                 border:1px solid black;
             }
+            #home{
+                height:40px;
+                width:120px;
+                background-color:yellow;
+                font-family:comic sans ms;
+                color:black;
+                font-size:20px;
+                border:1px solid black;
+            }
             </style>
     </head>
     <body style="background-color:#ffeabc">
@@ -284,18 +284,13 @@
             <input class="inps" id="high" placeholder="Max"><br><br>
             <button onclick="rgo()" id="randbut">Generate</button>
             <hr>
-            <p class="subtitle">Base Ten Converter</p>
+            <p class="subtitle">Base Converter</p>
             <p id="conout" class="text">0</p>
             <input class="inps" id="connum" placeholder="Number to Convert (Base 10)"><br>
             <input class="inps" id="conbase" placeholder="Base"><br><br>
             <button onclick="congo()" id="conbut">Go</button>
             <hr>
-            <p class="subtitle"></p>
+            <button onclick="home()" id="home">Home</button>
         </center>
     </body>
-</html>
-
-<script src="filesystem:https://webmakerapp.com/temporary/script.js">
-</script>
-</body>
 </html>
