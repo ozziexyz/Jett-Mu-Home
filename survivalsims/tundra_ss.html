@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survival</title>
+    <script>
+      var vfirelvl = 3;
+      var stick = 0;
+      var ctime = 0;
+      var firetime=4000;
+      var scurtime=0;
+      var mcurtime=0;
+      var lvlup=0;
+      var lvldmup = 1;
+      var vfoodlvl = 5;
+      var afood = 0;
+      var vthirst = 100;
+      var bottlelvl = 0;
+      var status = 1;
+      var thirsttt = 500;
+      function gstick(){
+        var rstick = Math.floor(Math.random()*10);
+        if(rstick>=5){
+          rstick = 0;
+        }
+        if(status== 0){
+          rstick = 0;
+        }
+        stick = stick + rstick;
+        document.getElementById('tstick').innerHTML=stick;
+      }
+      function putstik(){
+        if(status!=0){
+          vfirelvl = Math.round(lvldmup*(vfirelvl + 0.6*stick));
+          stick = 0;
+          document.getElementById('tstick').innerHTML=stick;
+          document.getElementById('tfirelvl').innerHTML=vfirelvl;
+        }
+      }
+      function eat(){
+        if(status!=0){
+          afood = afood - 5 + vfoodlvl;
+          vfoodlvl = 5;
+          document.getElementById('foods').innerHTML=afood;
+          document.getElementById('hunglvl').innerHTML=vfoodlvl;
+        }
+      }
+      function scvnge(){
+        if(status!=0){
+          var rfood = Math.floor(Math.random()*20);
+          if(rfood>=7){
+            rfood = 0;
+          }
+          afood = afood + rfood;
+          document.getElementById('foods').innerHTML=afood;
+        }
+      }
+      function drink(){
+        if(status!=0){
+          if(bottlelvl>0){
+            if(vthirst==100){
+              bottlelvl = bottlelvl;
+            }
+            else{
+              vthirst = 100;
+              bottlelvl = bottlelvl-25;
+              document.getElementById('thirstlvl').innerHTML=vthirst;
+              document.getElementById('botlvl').innerHTML=bottlelvl + "%";
+            }
+          }
+        }
+      }
+      function fillb(){
+        if(status!=0){
+          bottlelvl = 100;
+          document.getElementById('botlvl').innerHTML=bottlelvl + "%";
+        }
+      }
+      window.setInterval(function(){
+        if(status!=0){
+          vfirelvl = vfirelvl - 1;
+          document.getElementById('tfirelvl').innerHTML=vfirelvl;
+        }
+      }, firetime);
+      window.setInterval(function(){
+        scurtime= Math.round(10*(scurtime+0.1))/10;
+        if (scurtime==60){
+          scurtime=scurtime-60;
+          mcurtime=mcurtime + 1;
+        }
+        if (mcurtime>=2){
+          lvlup = 500;
+          lvldmup= 0.95;
+        }
+        else if(mcurtime>=4){
+          lvlup= 1000;
+          lvldmup = 0.8;
+        }
+        else if(mcurtime>=8){
+          lvlup=1500;
+          lvldmup= 0.5;
+        }
+        if(status!=0){
+          document.getElementById('cutime').innerHTML="Time Alive: "+mcurtime+"min "+scurtime+"sec";
+        }
+      }, 100);
+      window.setInterval(function(){
+        ctime=ctime + 1;
+        if(status==0){
+          ctime = ctime-1;
+        }
+        if (ctime>=7&&ctime<=20){
+          if (status!=0){
+            document.body.style.backgroundColor="lightblue";
+            firetime=8000 - lvlup;
+            thirstt = 4000 - lvlup;
+          }
+        }
+        else{
+          if (status!=0){
+            document.body.style.backgroundColor="#828282";
+            firetime =3000 - lvlup;
+            thirsttt = 6000 - lvlup;
+          }
+        }
+        if (ctime>23){
+          ctime = 0;
+        }
+        document.getElementById('ttime').innerHTML="Time (Military Time): " + ctime;
+      }, 2000);
+      window.setInterval(function(){
+        if(status!=0){
+          vfoodlvl = vfoodlvl-1;
+          document.getElementById("hunglvl").innerHTML=vfoodlvl;
+        }
+      }, 10000);
+      window.setInterval(function(){
+        if(status!=0){
+          var rthirst = Math.floor(Math.random()*8);
+          vthirst = vthirst - parseInt(rthirst);
+          document.getElementById("thirstlvl").innerHTML=vthirst;
+        }
+      }, thirsttt);
+      window.setInterval(function(){
+        if(vfirelvl==0){
+          document.body.style.backgroundColor="red";
+          status=0;
+        }
+        if(vfoodlvl==0){
+          document.body.style.backgroundColor="red";
+          status=0;
+        }
+        if(vthirst==0){
+          document.body.style.backgroundColor="red";
+          status=0;
+        }
+      }, 1);
+      function restart(){
+        status =2;
+        setTimeout(function(){
+            status =1;
+            vthirst = 100;
+            vfirelvl=3;
+            vfoodlvl=5;
+            afood = 0;
+            stick = 0;
+            bottlelvl = 0
+            scurtime=0;
+            mcurtime=0;
+            ctime = 0;
+        },2000);
+      }
+      window.setInterval(function(){
+        document.getElementById('botlvl').innerHTML=bottlelvl + "%";
+        document.getElementById('hunglvl').innerHTML=vfoodlvl;
+        document.getElementById('foods').innerHTML=afood;
+        document.getElementById('tstick').innerHTML=stick;
+        document.getElementById('tfirelvl').innerHTML=vfirelvl;
+        document.getElementById('thirstlvl').innerHTML=vthirst;
+        document.getElementById('ttime').innerHTML="Time (Military Time): " + ctime;
+        if(status!=0){
+        document.getElementById('cutime').innerHTML="Time Alive: " + mcurtime + "min " + scurtime + "sec";}
+      },1);
+    </script>        
+    <style>
+      .title{
+        font-size:40px;
+        font-family:cursive;
+      }
+      .text{
+        font-size:20px;
+        font-family:cursive;
+        line-height:75%
+      }
+      .ltext{
+        font-size:25px;
+        font-family:cursive;
+        line-height:50%
+      }
+      .button{
+        height:40px;
+        border:2px solid black;
+        background-color:lightyellow;
+        font-family:comic sans ms;
+        font-size:20px;
+        line-height:50%;
+      }
+    </style>
+  </head>
+  <body style="background-color:#828282">
+    <center>
+      <h1 class="title">Tundra Survival Simulator</h1>
+      <hr>
+      <p class="text" id="cutime">Time Alive: 0min 0sec</p>
+      <p class="text" id="ttime">Time (Military Time): 0</p>
+      <hr>
+      <p class="text">Fire Level:</p><p class="text" id="tfirelvl">3</p><br>
+      <button onclick="putstik()" class="button">Throw Stick</button>
+      <p class="text">Stick Amount:</p><p class="text" id="tstick">0</p><br>
+      <button onclick="gstick()" class="button">Get Stick</button>
+      <hr>
+      <p class="text">Hunger Meter:</p><p class="text" id="hunglvl">5</p><br>
+      <button onclick="eat()" class="button">Eat</button>
+      <p class="text">Food amount:</p><p class="text" id="foods">0</p><br>
+      <button onclick="scvnge()" class="button">Scavenge For Food</button>
+      <hr>
+      <p class="text">Thirst Level:</p><p class="text" id="thirstlvl">100</p><br>
+      <button onclick="drink()" class="button">Drink From Bottle</button>
+      <p class="text">Bottle Fullness:</p><p class="text" id="botlvl">0%</p><br>
+      <button onclick="fillb()" class="button">Fill Bottle</button>
+      <hr>
+      <p class="ltext">Things/Rules</p>
+      <p class="text">If your Fire Level, Hunger Meter, or Thirst Level drops to 0, you lose.</p>
+      <p class="text">From 7 to 20 (Military Time), it is day. The fire burns slower and you lose become more thirsty. At other times, it is night, and those two things swap.</p>
+      <p class="text">At 2 minutes, 4 minutes and 8 minutes of gameplay, it gets harder each time.</p>
+      <p class="text">Other things will have to be discovered by yourself</p>
+      <hr>
+      <button onclick="restart()" class="button">Restart (2 sec Delay)</button><br>
+      <button onclick="home()" class="button">Back</button>
+      <button onclick="jmufun()" class="button">Home</button>
+    </center>
+  </body>
+</html>
+
+<script src="filesystem:https://webmakerapp.com/temporary/script.js">
+</script>
+</body>
+</html>
