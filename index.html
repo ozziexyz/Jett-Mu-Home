@@ -31,8 +31,7 @@
             <br>
         <table>
             <tr height="300px">
-                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0
-                ">
+                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0">
                     <center>
                         <p style='font-family:comic sans ms;font-size:30px'>Funland</p>
                         <p style="font-family:sans-serif;font-size:20px">Published: 12/9/18</p>
@@ -90,10 +89,19 @@
                         <p style="font-family:sans-serif;font-size:20px">Updated: 12/31/18</p>
                     </center>
                 </td>
+                <td style="background-color:white;width:400px;border:2px solid black;line-height:1.0">
+                    <center>
+                        <p style='font-family:comic sans ms;font-size:30px'>Survival Simulators</p>
+                        <p style="font-family:sans-serif;font-size:20px">Published: 1/4/18</p>
+                        <a href="https://jmufun.com/survivalsims" target="_blank">
+                            <canvas id="survsim" height="210px" width="300px" style="border:1px solid black;text-align:center">Your browser doesn't allow Canvases</canvas>
+                        </a>
+                        <p style="font-family:sans-serif;font-size:20px">Updated: 1/4/18</p>
+                    </center>
+                </td>
             </tr>
         </table>
         </center>
-        
         <script>
             var canv = document.getElementById("funlandcanv");
             var ctx = canv.getContext("2d");
@@ -148,6 +156,20 @@
             ctx4.textAlign="center";
             ctx4.font="45px comic sans ms";
             ctx4.fillText("1 2 3", canv.width/2, canv.height/2);
+        </script>
+        <script>
+            var canv5 = document.getElementById('survsim');
+            var ctx5 = canv5.getContext("2d");
+            ctx5.fillStyle = "lightyellow";
+            ctx5.fillRect(0,0,300,300);
+            ctx5.beginPath();
+            ctx5.arc(250,50,70,0,2*Math.PI,false);
+            ctx5.fillStyle="yellow";
+            ctx5.fill();
+            ctx5.font="25px comic sans ms";
+            ctx5.fillStyle="black";
+            ctx5.textAlign="center";
+            ctx5.fillText("Survival Sims", canv.width/2, canv.height*2/3);
         </script>
     </body>
 </html>
