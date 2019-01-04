@@ -187,6 +187,22 @@
                     }
                 }
             }
+            function quago(){
+                var a = parseInt(document.getElementById('aquad').value);
+                var b = parseInt(document.getElementById('bquad').value);
+                var c = parseInt(document.getElementById('cquad').value);
+                if(isNaN(a)||isNaN(b)||isNaN(c)){
+                    document.getElementById("quadout").innerHTML="Please make them all integers, mKay?";
+                }
+                else if(a==""||b==""||c==""){
+                    document.getElementById("quadout").innerHTML="Please put something in the inputs, mKay?";
+                }
+                else{
+                    var quaone = Math.round(((-b + Math.pow((Math.pow(b,2) - 4*a*c),(1/2)))/(2*a))*1000)/1000;
+                    var quatwo = Math.round(((-b - Math.pow((Math.pow(b,2) - 4*a*c),(1/2)))/(2*a))*1000)/1000;
+                    document.getElementById("quadout").innerHTML="X = " + quaone + ", " + quatwo;
+                }
+            }
             function home(){
                 var jmfun=window.open("https://jmufun.com","_blank");
             }
@@ -263,6 +279,14 @@
                 font-size:20px;
                 border:1px solid black;
             }
+            #quadbut{
+                height:40px;
+                width:240px;
+                background-color:lightblue;
+                font-family:comic sans ms;
+                font-size:20px;
+                border:1px solid black;
+            }
             #home{
                 height:40px;
                 width:120px;
@@ -271,6 +295,13 @@
                 color:black;
                 font-size:20px;
                 border:1px solid black;
+            }
+            .quadinp{
+                width:30px;
+            }
+            .inline{
+                display:inline;
+                font-family:comic sans ms;
             }
             </style>
     </head>
@@ -289,6 +320,13 @@
             <input class="inps" id="connum" placeholder="Number to Convert (Base 10)"><br>
             <input class="inps" id="conbase" placeholder="Base"><br><br>
             <button onclick="congo()" id="conbut">Go</button>
+            <hr>
+            <p class="subtitle">Quadratic Solver</p>
+            <input class="quadinp" id="aquad" placeholder="A"><p class="inline">X^2 + </p>
+            <input class="quadinp" id="bquad" placeholder="B"><p class="inline">X + </p>
+            <input class="quadinp" id="cquad" placeholder="C"><p class="inline"> = 0</p>
+            <p id="quadout" class="text">X = </p>
+            <button onclick="quago()" id="quadbut">Go</button>
             <hr>
             <button onclick="home()" id="home">Home</button>
         </center>
