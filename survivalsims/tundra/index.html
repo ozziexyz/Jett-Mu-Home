@@ -179,7 +179,10 @@
         document.getElementById('tfirelvl').innerHTML=vfirelvl;
         document.getElementById('thirstlvl').innerHTML=vthirst;
         document.getElementById('ttime').innerHTML="Time (Military Time): " + ctime;
-        document.getElementById('cutime').innerHTML="Time Alive: " + mcurtime + "min " + scurtime + "sec";
+        if (status!=0){
+          document.getElementById('cutime').innerHTML="Time Alive: " + mcurtime + "min " + scurtime + "sec"
+        }
+        ;
       },1);
       function jmufun(){
           var homeye = window.open("https://jmufun.com/","_blank");
