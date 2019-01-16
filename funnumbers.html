@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" >
+        <title>Procrastinator Deluxe</title>
+        <script>
+            var number;
+            var trynumber=0;
+            function open(){
+                number = Math.floor(Math.random()*200) - 100;
+            }
+            window.setInterval(function(){
+                document.getElementById("num").innerHTML=number;
+                document.getElementById("numt").innerHTML=trynumber;
+                if(trynumber==number){
+                    number = Math.floor(Math.random()*200) - 100;
+                }
+            }, 1);
+            function change(numb){
+                trynumber=trynumber + numb;
+            }
+        </script>
+        <style>
+            .title{
+                font-family:comic sans ms;
+                font-size:45px;
+                line-height:0%;
+            }
+            .thenumber{
+                font-family:comic sans ms;
+                font-size:38px;
+                line-height:0%;
+            }
+            .trynumber{
+                font-family:comic sans ms;
+                font-size:38px;
+                line-height:50%;
+            }
+            .radbutts{
+                background-color:#f4d442;
+                border-style:outset;
+                border-color:#d6b03e;
+                border-width:2px 4px 6px 4px;
+                border-radius:100%;
+                height:50px;
+                width:50px;
+                display:inline;
+                font-size:20px;
+                font-family:comic sans ms;
+            }
+        </style>
+    </head>
+    <body onload="open()">
+        <center>
+            <p class="title">Some Cool Adding Thing</p>
+            <h1 class="thenumber" id="num">0</h1>
+            <h1 class="trynumber" id="numt">0</h1>
+            <button class="radbutts" onclick="change(-7)">-7</button>
+            <button class="radbutts" onclick="change(-2)">-2</button>
+            <button class="radbutts" onclick="change(2)">+2</button>
+            <button class="radbutts" onclick="change(7)">+7</button>
+        </center>
+    </body>
+</html>
+
+<script src="filesystem:https://webmakerapp.com/temporary/script.js">
+</script>
+</body>
+</html>
