@@ -40,8 +40,16 @@
       }
       function eat(){
         if(status!=0){
-          afood = afood - 5 + vfoodlvl;
-          vfoodlvl = 5;
+          var hungleft = 5-vfoodlvl;
+          if(hungleft>=afood){
+              fincreaser = vfoodlvl + afood;
+              afood = 0;
+          }
+          else{
+              fincreaser=5-vfoodlvl;
+              afood = afood - fincreaser;
+          }
+          vfoodlvl = fincreaser;
           document.getElementById('foods').innerHTML=afood;
           document.getElementById('hunglvl').innerHTML=vfoodlvl;
         }
@@ -151,7 +159,7 @@
           document.body.style.backgroundColor="red";
           status=0;
         }
-        else if(vthirst==0){
+        else if(vthirst<=0){
           document.body.style.backgroundColor="red";
           status=0;
         }
