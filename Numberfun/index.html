@@ -203,6 +203,50 @@
                     document.getElementById("quadout").innerHTML="X = " + quaone + ", " + quatwo;
                 }
             }
+            function primgo(){ 
+                var pinp = document.getElementById("primein").value;
+                if(pinp==""||isNaN(pinp)){
+                    document.getElementById("primout").innerHTML="Please make the input a positive integer, mKay?";
+                }
+                else if(pinp<=0){
+                    document.getElementById("primout").innerHTML="Please make the input a positive integer, mKay?";
+                }
+                else if(pinp==1){
+                    document.getElementById("primout").innerHTML="No, Not Prime";
+                }
+                else{
+                    var countt = 0;
+                    var sqr = Math.round(Math.pow(pinp,(1/2)));
+                    for (pfor=2; pfor<=sqr; pfor++){
+                        var ramain=pinp%pfor;
+                        if(ramain==0){
+                            countt = countt + 1;
+                        }
+                    }
+                    if(countt==0){
+                        document.getElementById("primout").innerHTML="Yes, Prime";
+                    }
+                    else{
+                        document.getElementById("primout").innerHTML="No, Not Prime";
+                    }
+                }
+            }
+            function pythago(){
+                var av = document.getElementById("apythin").value;
+                var bv = document.getElementById("bpythin").value;
+                var asqr = Math.pow(av,2);
+                var bsqr = Math.pow(bv,2);
+                var c = Math.round((Math.pow((asqr + bsqr),(1/2)))*1000)/1000;;
+                document.getElementById('pythout').innerHTML=c;
+            }
+            function pythgo(){
+                var a = document.getElementById("avpythin").value;
+                var c = document.getElementById("cpythin").value;
+                var asqr = Math.pow(a,2);
+                var csqr = Math.pow(c,2);
+                var b = Math.round((Math.pow((csqr - asqr),(1/2)))*1000)/1000;;
+                document.getElementById('pythaout').innerHTML=b;
+            }
             function home(){
                 var jmfun=window.open("https://jmufun.com");
             }
@@ -248,6 +292,12 @@
                 line-height:25%;
                 display:block;
             }
+            .stext{
+                font-family:comic sans ms;
+                font-size:20px;
+                line-height:25%;
+                display:block;
+            }
             ::-webkit-input-placeholder {
                text-align: center;
             }
@@ -265,7 +315,7 @@
             }
             #randbut{
                 height:40px;
-                width:240px;
+                width:100%;
                 background-color:white;
                 font-family:comic sans ms;
                 font-size:20px;
@@ -273,7 +323,7 @@
             }
             #conbut{
                 height:40px;
-                width:240px;
+                width:100%;
                 background-color:lightgreen;
                 font-family:comic sans ms;
                 font-size:20px;
@@ -281,8 +331,24 @@
             }
             #quadbut{
                 height:40px;
-                width:240px;
+                width:100%;
                 background-color:lightblue;
+                font-family:comic sans ms;
+                font-size:20px;
+                border:1px solid black;
+            }
+            #primbut{
+                height:40px;
+                width:100%;
+                background-color:lightyellow;
+                font-family:comic sans ms;
+                font-size:20px;
+                border:1px solid black;
+            }
+            #pythbut{
+                height:40px;
+                width:100%;
+                background-color:#ff9e9e;
                 font-family:comic sans ms;
                 font-size:20px;
                 border:1px solid black;
@@ -298,6 +364,9 @@
             }
             .quadinp{
                 width:30px;
+            }
+            .pythinps{
+                width:150px;
             }
             .inline{
                 display:inline;
@@ -319,14 +388,32 @@
             <p id="conout" class="text">0</p>
             <input class="inps" id="connum" placeholder="Number to Convert (Base 10)"><br>
             <input class="inps" id="conbase" placeholder="Base"><br><br>
-            <button onclick="congo()" id="conbut">Go</button>
+            <button onclick="congo()" id="conbut">Convert</button>
             <hr>
             <p class="subtitle">Quadratic Solver</p>
             <input class="quadinp" id="aquad" placeholder="A"><p class="inline">X^2 + </p>
             <input class="quadinp" id="bquad" placeholder="B"><p class="inline">X + </p>
             <input class="quadinp" id="cquad" placeholder="C"><p class="inline"> = 0</p>
             <p id="quadout" class="text">X = </p>
-            <button onclick="quago()" id="quadbut">Go</button>
+            <button onclick="quago()" id="quadbut">Solve</button>
+            <hr>
+            <p class="subtitle">Prime Knower</p>
+            <p class="stext">Number to certify if prime</p>
+            <input class="inps" id="primein" placeholder="[Positive Integer Goes Here]">
+            <p class="text" id="primout">Dunno</p>
+            <button onclick="primgo()" id="primbut">Know</button>
+            <hr>
+            <p class="subtitle">Pythagorean Theorem Solver</p>
+            <p class="stext">C Unknown</p>
+            <input class="pythinps" id="apythin" placeholder="A">
+            <input class="pythinps" id="bpythin" placeholder="B">
+            <p class="text" id="pythout">C</p>
+            <button onclick="pythago()" id="pythbut">Solve</button>
+            <p class="stext">B Unknown</p>
+            <input class="pythinps" id="avpythin" placeholder="A">
+            <input class="pythinps" id="cpythin" placeholder="C">
+            <p class="text" id="pythaout">B</p>
+            <button onclick="pythgo()" id="pythbut">Solve</button>
             <hr>
             <button onclick="home()" id="home">Home</button>
         </center>
