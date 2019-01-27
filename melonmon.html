@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <title>Melonmon!</title>
+    <script>
+      var elemIDs = ['onecard', 'twocard', 'thrcard', 'foucard', 'fivcard'];
+      var srcUrls = ['https://i.imgur.com/Uz3Qgpx.jpg',
+                     'https://i.imgur.com/Toh6Evo.jpg',
+                     'https://i.imgur.com/EHxOdrP.jpg',
+                     'https://i.imgur.com/0C7LiFC.jpg',
+                     'https://i.imgur.com/JKGU7oV.jpg',
+                     'https://i.imgur.com/SBhJTKc.jpg',
+                     'https://i.imgur.com/KvARrMY.jpg',
+                     'https://i.imgur.com/HVkM7yi.jpg',
+                     'https://i.imgur.com/WDcOmwK.jpg',
+                     'https://i.imgur.com/drgQ52p.jpg'];
+      // [health, attack, heal, superdmg, type, alive?]
+      var onestat = [45,5,5,15,"Melon",1];
+      var twostat = [50,8,"none",15,"Melon",1];
+      var thrstat = [45,7,8,20,"Melon",1]; 
+      var foustat = [55,0,10,"specone","Melon",1];
+      var fivstat = [50,10,"none",30,"Melon",1];
+      var sixstat = [45,8,5,18,"Fruit",1];
+      var sevstat = [45,8,5,"spectwo","Fruit",1];
+      var eigstat = [20,5,1,"specthr","Fruit",1];
+      var ninstat = [60,1,"none","specfou","Fruit",1];
+      var tenstat = [40,8,5,"specfiv","Fruit",1];
+      var statlist = [onestat,twostat,thrstat,foustat,fivstat,sixstat,sevstat,eigstat,ninstat,tenstat];
+      var onecstat = "";
+      var twocstat = "";
+      var thrcstat = "";
+      var foucstat = "";
+      var fivcstat = "";
+      var cstatlist = [onecstat,twocstat,thrcstat,foucstat,fivcstat];
+      var statchoose;
+      var opstat = "";
+      var oppowerp = 0;
+      var ypowerp = 0;
+      var val;
+      var again=0;
+      var pagain=0;
+      var allnum;
+      var powerbin = 0;
+      var clicko=1;
+      var clicka =0;
+      var turn=1;
+      var game=0;
+      var opcards=5;
+      var ycardss=5;
+      var amtcards = 10;
+      function startb(){
+        game=1;
+        turn=1;
+        var amilk = Math.floor(Math.random()*amtcards);
+        document.getElementById("opcard").src=srcUrls[amilk]; 
+        opstat = statlist[amilk].slice();
+        oppowerp = 0;
+        document.getElementById('ophealth').innerHTML="Health: " + opstat[0];
+        document.getElementById('oppower').innerHTML="Power Points: " + oppowerp;
+        for (milk=0; milk<=4; milk++){
+          var milkv=Math.floor(Math.random()*amtcards);
+          if(milk==0){
+            onecstat=statlist[milkv].slice();
+          }
+          else if(milk==1){
+            twocstat=statlist[milkv].slice(); 
+          }
+          else if(milk==2){
+            thrcstat=statlist[milkv].slice();
+          }
+          else if(milk==3){
+            foucstat=statlist[milkv].slice(); 
+          }
+          else if(milk==4){
+            fivcstat=statlist[milkv].slice();
+          }
+          document.getElementById(elemIDs[milk]).src=srcUrls[milkv]; 
+          document.getElementById(elemIDs[milk]).style.border="1px solid lightblue"; 
+          document.getElementById("ycard").src="https://bit.ly/1CxJlVG";
+          document.getElementById("ypower").style.color="black";
+          ypowerp=0;
+          document.getElementById('ypower').innerHTML="Power Points: " + ypowerp;
+        }
+      }
+      function choose(num){
+        allnum = num;
+        for(j=0; j<=num; j++){
+          if(j==1){
+            statchoose=twocstat;
+          }
+          else if(j==2){
+            statchoose=thrcstat;
+          }
+          else if(j==3){
+            statchoose=foucstat;
+          }
+          else if(j==4){
+            statchoose=fivcstat;
+          }
+          else if(j==0){
+            statchoose=onecstat;
+          }
+        }
+        var srcchoose = document.getElementById(elemIDs[num]).src;
+        document.getElementById('yhealth').innerHTML="Health: " + statchoose[0];
+        document.getElementById("ycard").src= srcchoose;
+        for(i=0; i<=4; i++){
+          document.getElementById(elemIDs[i]).style.border="1px solid lightblue"; 
+        }
+        document.getElementById(elemIDs[num]).style.border="1px solid red";
+      }
+      function attack(){
+        if(statchoose[5]==1&&turn==1&&game==1){
+          turn=0;
+          var atkamt = statchoose[1];
+          opstat[0] = opstat[0]-atkamt;
+
+          document.getElementById('ophealth').innerHTML="Health: " + opstat[0];
+          ypowerp = ypowerp+1;
+          document.getElementById('ypower').innerHTML="Power Points: " + ypowerp;
+          opturn(1);
+        }
+      }
+      function heal(){
+        if(ypowerp>=1&&turn==1&&game==1){
+          if(statchoose[2]!="none"){
+            statchoose[0] = statchoose[0] + statchoose[2];
+            ypowerp = ypowerp-1;
+            document.getElementById("ypower").innerHTML="Power Points: " + ypowerp;
+            document.getElementById("yhealth").innerHTML="Health: " + statchoose[0];
+            turn=0;
+            opturn(1);
+          } 
+          else{
+            turn=1;
+          }
+        }
+      }
+      window.setInterval(function(){
+        if(opstat[0]<=0){
+          opcards=opcards-1;
+          if(opcards==0){
+            document.getElementById('opcard').src="https://bit.ly/2SMGqHm";
+            alert("You Win!!");
+            document.body.style.backgroundColor="yellow";
+            game=0;
+          }
+          else if(ycardss==0){
+            document.getElementById('ycard').src="https://bit.ly/2SMGqHm";
+            alert("You Lose.");
+            document.body.style.backgroundColor="red";
+          }
+          var amilk = Math.floor(Math.random()*amtcards);
+          document.getElementById("opcard").src=srcUrls[amilk]; 
+          opstat = statlist[amilk].slice();
+          document.getElementById('ophealth').innerHTML="Health: " + opstat[0];
+          document.getElementById('oppower').innerHTML="Power Points: " + oppowerp;
+        }
+        if(ypowerp>=5){
+          document.getElementById("ypower").style.color="gold";
+        }
+        else{
+          document.getElementById("ypower").style.color="black";
+        }
+        if(oppowerp>=5){
+          document.getElementById("oppower").style.color="gold";
+        }
+        else{
+          document.getElementById("oppower").style.color="black";
+        }
+        document.getElementById('yhealth').innerHTML="Health: " + statchoose[0];
+        document.getElementById('ophealth').innerHTML="Health: " + opstat[0];
+      },1);
+      function superb(){
+        if(turn==1&&statchoose[5]==1&&game==1){
+          if(ypowerp>=5&&statchoose[5]==1){
+            if(isNaN(statchoose[3])){
+              if(statchoose[3]=="specone"){
+                onecstat[0]=onecstat[0] + 5;
+                twocstat[0]=twocstat[0] + 5;
+                thrcstat[0]=thrcstat[0] + 5;
+                foucstat[0]=foucstat[0] + 5;
+                fivcstat[0]=fivcstat[0] + 5;
+                statchoose[0]=statchoose[0]-5;
+              }
+              else if(statchoose[3]=="spectwo"){
+                opstat[0]=opstat[0]-40;
+                statchoose[0]=statchoose[0]-10;
+              }
+              else if(statchoose[3]=="specthr"){
+                opstat[0]=opstat[0]-45;
+                statchoose[0]=statchoose[0]-1000;
+                statchoose[5]=0;
+              }
+              else if(statchoose[3]=="specfou"){
+                onecstat[0]=onecstat[0] + 5;
+                twocstat[0]=twocstat[0] + 5;
+                thrcstat[0]=thrcstat[0] + 5;
+                foucstat[0]=foucstat[0] + 5;
+                fivcstat[0]=fivcstat[0] + 5;
+                statchoose[0]=statchoose[0]-5;
+              }
+              else if(statchoose[3]=="specfiv"){
+                again=1;
+                opstat[0]=opstat[0]-10;
+              }
+            }
+            else{
+              opstat[0] = opstat[0]-statchoose[3];
+              document.getElementById("ophealth").innerHTML="Health: " + opstat[0];
+            }
+            ypowerp = ypowerp-5;
+            document.getElementById("ypower").innerHTML="Power Points: " + ypowerp;
+          }
+          if(again==0){
+            turn=0;
+          }
+          opturn(1);
+        }
+      }
+      function opturn(num){
+        if(num==1&&turn==0){
+          if(statchoose[1]<opstat[0]){
+            var rand = Math.floor(Math.random()*500)+500;
+            window.setTimeout(function(){
+              if(oppowerp>=5){
+                if(isNaN(opstat[3])){
+                  if(opstat[3]=="specone"){
+                    opstat[0] = opstat[0]+5;
+                  }
+                  else if(statchoose[3]=="spectwo"){
+                    statchoose[0]=statchoose[0]-40;
+                    opstat[0]=opstat[0]-10;
+                  }
+                  else if(statchoose[3]=="specthr"){
+                    statchoose[0]=statchoose[0]-45;
+                    opstat[0]=opstat[0]-1000;
+                    opstat[5]=0;
+                  }
+                  else if(statchoose[3]=="specfou"){
+                    opstat[0]=opstat[0]+5;
+                  }
+                  else if(statchoose[3]=="specfiv"){
+                    pagain=1;
+                    statchoose[0]=statchoose[0]-10;
+                  }
+                }
+                else{
+                  statchoose[0] = statchoose[0]-opstat[3];
+                  document.getElementById("yhealth").innerHTML="Health: " + statchoose[0];
+                }
+                oppowerp = oppowerp-5;
+                document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
+              }
+              else if(statchoose[0]>=opstat[1]||(statchoose[1]<=opstat[0]&&statchoose[0]<=opstat[1])){
+                statchoose[0]=statchoose[0]-parseInt(opstat[1]);
+                document.getElementById("yhealth").innerHTML="Health: " + statchoose[0];
+                oppowerp = oppowerp + 1;
+                document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
+              }
+              if(pagain==0){turn=1;}
+            }, rand);
+          }
+          else{
+            if(oppowerp>=1&&opstat[2]!="none"){
+              var rand = Math.floor(Math.random()*500)+500;
+              window.setTimeout(function(){
+                opstat[0] = opstat[0]+opstat[2];
+                oppowerp=oppowerp-1;
+                document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
+                document.getElementById("ophealth").innerHTML="Health: " + opstat[0];
+                turn=1;
+              },rand);
+            }
+            else{
+              opturn(0);
+            }
+          }
+          if(statchoose[0]<1){
+            document.getElementById("ycard").src="https://bit.ly/2SMGqHm";
+            document.getElementById(elemIDs[allnum]).src="https://bit.ly/2SMGqHm";
+            statchoose[5] = 0;
+            ycardss=ycarss-1;
+          }
+        }
+        else{
+          statchoose[0]=statchoose[0]-parseInt(opstat[1]);
+          document.getElementById("yhealth").innerHTML="Health: " + statchoose[0];
+          oppowerp = oppowerp + 1;
+          document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
+        }
+      }
+      function jmufun(){
+        window.open("https://jmufun.com","_blank");
+      }
+    </script>
+    <style>
+      .title{
+        font-size:50px;
+        line-height:0%;
+        font-family:comic sans ms;
+      }
+      .text{
+        font-size:25px;
+        font-family:comic sans ms;
+        line-height:50%; 
+      }
+      .stext{
+        font-size:15px;
+        font-family:comic sans ms;
+        line-height:1;
+      }
+      .button{
+        font-family:comic sans ms;
+        font-size:20px;
+        border:2px solid black;
+        background-color:yellow;
+        height:40px;
+        width:150px;
+      }
+      img{
+        border:1px solid lightblue;
+      }
+      #super{
+        background-color:red;
+      }
+      .invis{
+        opacity:0;
+        filter: alpha(opacity=0);
+      }
+      .subtitle{
+        font-size:35px;
+        font-family:comic sans ms;
+        line-height:50%;
+      }
+    </style>
+  </head>
+  <body style="background-color:lightblue">
+    <center>
+      <p class="title">Melonmon</p><hr>
+      <button onclick="startb()" class="button">Start</button>
+      <table>
+        <tr>
+          <td><br><br><center>
+            <p class="text">Opponent's card</p>
+            <img id="opcard" height="360px" width="240px" src="https://bit.ly/1CxJlVG">
+            <p class="text" id="ophealth">Health: 0</p>
+            <p class="text" id="oppower">Power Points: 0</p><br><br></center>
+          </td>
+          <td><p class="invis">space</p></td> 
+          <td><center>
+            <p class="text">Your card</p>
+            <img id="ycard" height="360px" width="240px" src="https://bit.ly/1CxJlVG">
+            <p class="text" id="yhealth">Health: 0</p>
+            <p class="text" id="ypower">Power Points: 0</p></center>
+          </td>
+        </tr>
+      </table>
+      <button onclick="attack()" class="button" id="atk">Attack</button>
+      <button onclick="superb()" class="button" id="super">Super</button>
+      <button onclick="heal()" class="button" id="heal">Heal</button><br><br>
+      <p class="text">Your deck</p>
+      <img id="onecard" src="https://bit.ly/1CxJlVG" height="120px" width="80px" onclick="choose(0)">
+      <img id="twocard" src="https://bit.ly/1CxJlVG" height="120px" width="80px" onclick="choose(1)">
+      <img id="thrcard" src="https://bit.ly/1CxJlVG" height="120px" width="80px" onclick="choose(2)">
+      <img id="foucard" src="https://bit.ly/1CxJlVG" height="120px" width="80px" onclick="choose(3)">
+      <img id="fivcard" src="https://bit.ly/1CxJlVG" height="120px" width="80px" onclick="choose(4)">
+      <hr>
+      <p class="subtitle">RULES</p>
+      <br>
+      <p class="stext">To start, you press the Start button at the top. This gives you 5 cards and the opponent 5 cards. You can't see your opponent's deck. The Opponent already put down his card to play, so you have to (click on one of your cards). You go first. The only move you can do at the start is attack. Attacking gives you 1 power point. Super can only be used if you have atleast 5 power points. Heal can only be used if you have atleast 1 power points. Using them takes the amount of power points away for how many power points they need to activate. When the health runs to zero for a card, it dies and turns black. The person who wins is the last person with atleast 1 card alive in their deck.</p>
+      <hr>
+      <button class="button" onclick="jmufun()">Home</button>
+    </center>
+  </body>
+</html>
+
+<script src="filesystem:https://webmakerapp.com/temporary/script.js">
+</script>
+</body>
+</html>
