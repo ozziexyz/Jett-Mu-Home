@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-
-<style id="webmakerstyle">
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
   <head>
-    <meta charset = "UTF-8">
     <title>Melonmon!</title>
     <script>
       var elemIDs = ['onecard', 'twocard', 'thrcard', 'foucard', 'fivcard'];
@@ -255,6 +244,9 @@
                     pagain=1;
                     statchoose[0]=statchoose[0]-10;
                   }
+                  if(pagain!=1){
+                    turn = 1;
+                  }
                 }
                 else{
                   statchoose[0] = statchoose[0]-opstat[3];
@@ -272,37 +264,42 @@
               if(pagain==0){turn=1;}
             }, rand);
           }
+        }
+        else if(num==0){
+          if(oppowerp>=1&&opstat[2]!="none"){
+            var rand = Math.floor(Math.random()*500)+500;
+            window.setTimeout(function(){
+              opstat[0] = opstat[0]+opstat[2];
+              oppowerp=oppowerp-1;
+              document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
+              document.getElementById("ophealth").innerHTML="Health: " + opstat[0];
+            },rand);
+          }
           else{
-            if(oppowerp>=1&&opstat[2]!="none"){
-              var rand = Math.floor(Math.random()*500)+500;
-              window.setTimeout(function(){
-                opstat[0] = opstat[0]+opstat[2];
-                oppowerp=oppowerp-1;
-                document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
-                document.getElementById("ophealth").innerHTML="Health: " + opstat[0];
-                turn=1;
-              },rand);
-            }
-            else{
-              opturn(0);
-            }
+            opturn(2);
           }
-          if(statchoose[0]<1){
-            document.getElementById("ycard").src="https://bit.ly/2SMGqHm";
-            document.getElementById(elemIDs[allnum]).src="https://bit.ly/2SMGqHm";
-            statchoose[5] = 0;
-            ycardss=ycarss-1;
-          }
+        }
+        else{
+          turn=1;
+        }
+        if(statchoose[0]<1){
+          document.getElementById("ycard").src="https://bit.ly/2SMGqHm";
+          document.getElementById(elemIDs[allnum]).src="https://bit.ly/2SMGqHm";
+          statchoose[5] = 0;
+          ycardss=ycarss-1;
         }
         else{
           statchoose[0]=statchoose[0]-parseInt(opstat[1]);
           document.getElementById("yhealth").innerHTML="Health: " + statchoose[0];
           oppowerp = oppowerp + 1;
           document.getElementById("oppower").innerHTML="Power Points: " + oppowerp;
+          turn = 1;
         }
       }
+        
+      
       function jmufun(){
-        window.open("https://jmufun.com","_blank");
+        window.open("https://jmufun.com","_self");
       }
     </script>
     <style>
@@ -384,9 +381,4 @@
       <button class="button" onclick="jmufun()">Home</button>
     </center>
   </body>
-</html>
-
-<script src="filesystem:https://webmakerapp.com/temporary/script.js">
-</script>
-</body>
 </html>
