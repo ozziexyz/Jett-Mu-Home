@@ -1,7 +1,23 @@
 <!DOCTYPE html> 
 <link rel="shortcut icon" type="image/jpg" href="https://i.imgur.com/sd1RvRH.jpg">
 <body style='background-image: url("https://i.imgur.com/sd1RvRH.jpg")' 'background-repeat':no-repeat;>
-
+<script>
+	function fakehomeone(){
+		document.getElementById("fakehometwo").style.display="block";
+	}
+	function fakehometwo(){
+		document.getElementById("fakehomesa").style.display="block";
+		document.getElementById("fakehomesb").style.display="block";
+		document.getElementById("fakehomesc").style.display="block";
+		document.getElementById("fakehomesd").style.display="block";
+	}
+	function fakehomethree(){
+		var a = window.open("https://jmufun.com/NONONO/", "_self")
+	}
+	function home(){
+		var a = window.open("https://jmufun.com/", "_self")
+	}
+</script>
 <br>
 <br>
 <p><font size="1000"> NONONONONONONONONONONONONONONONONONONONONONONONO</font></p>
@@ -24,4 +40,9 @@
 <p><font size="1000"> NONONONONONONONONONONONONONONONONONONONONONONONO</font></p>
 <p><font size="1000"> NONONONONONONONONONONONONONONONONONONONONONONONO</font></p>
 <p><font size="1000"> NONONONONONONONONONONONONONONONONONONONONONONONO</font></p>
-  <button onclick="window.open('https://jmufun.com/', '_self')">Home </button>
+  <button onclick="fakehomeone()">Home </button>
+<button onclick="fakehometwo()" id="fakehometwo" style="display:none"> Actually Home</button>
+<button onclick="fakehomethree()" id="fakehomesa" style="display:none">This is Home</button>
+<button onclick="fakehomethree()" id="fakehomesb" style="display:none">This is Home</button>
+<button onclick="home()" id="fakehomesc" style="display:none">This is Home</button>
+<button onclick="fakehomethree()" id="fakehomesd" style="display:none">This is Home</button>
