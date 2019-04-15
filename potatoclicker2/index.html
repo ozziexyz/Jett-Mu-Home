@@ -2,8 +2,6 @@
 <html>
 	<head>
 		<script>
-			//var poimg= document.getElementById("potato").style.backgroundImage;
-			//alert(poimg);
 			var poc=1;
 			var tp=0;
 			var farmcost=20;
@@ -89,7 +87,7 @@
 				}
 			}
 			function farmup(){
-				if(farmam>=farmupa&&tp>=farmupc){
+				if(farmam>=farmupa && tp>=farmupc){
 					tp=tp-farmupc;
 					farmval=farmval+1
 					farmupa=Math.floor(farmupa*1.4);
@@ -105,7 +103,7 @@
 				}
 			}
 			function fertup(){
-				if(fertam>=fertupa&&tp>=fertupc){
+				if(fertam>=fertupa && tp>=fertupc){
 					tp=tp-fertupc;
 					fertval=fertval+2
 					fertupa=Math.floor(fertupa*1.4);
@@ -121,7 +119,7 @@
 				}
 			}
 			function mineup(){
-				if(mineam>=mineupa&&tp>=mineupc){
+				if(mineam>=mineupa && tp>=mineupc){
 					tp=tp-mineupc;
 					mineval=mineval+3
 					mineupa=Math.floor(mineupa*1.4);
@@ -137,7 +135,7 @@
 				}
 			}
 			function storeup(){
-				if(stoream>=storeupa&&tp>=storeupc){
+				if(stoream>=storeupa && tp>=storeupc){
 					tp=tp-storeupc;
 					storeval=storeval+4
 					storeupa=Math.floor(storeupa*1.4);
@@ -150,13 +148,13 @@
 					tp=tp-carcost;
 					carcost=Math.floor(carcost*1.05);
 					caram=caram+1;
-					if caram==1{
+					if(caram==1){
 						document.getElementById("fivedone").style.display="block";
 					}
 				}
 			}
 			function carup(){
-				if(caram>=carupa&&tp>=carupc){
+				if(caram>=carupa && tp>=carupc){
 					tp=tp-carupc;
 					carval=carval+4
 					carupa=Math.floor(carupa*1.4);
@@ -254,25 +252,25 @@
 				document.getElementById("storeval").innerHTML=storeval;
 			},1);
 			window.setInterval(function(){
-				if(farmam>=farmupa&&tp>=farmupc){
+				if(farmam>=farmupa && tp>=farmupc){
 						document.getElementById("farmupb").style.backgroundColor="lightblue";
 				}
 				else{
 					document.getElementById("farmupb").style.backgroundColor="darkgray";
 				}
-				if(fertam>=fertupa&&tp>=fertupc){
+				if(fertam>=fertupa && tp>=fertupc){
 						document.getElementById("fertupb").style.backgroundColor="lightblue";
 				}
 				else{
 					document.getElementById("fertupb").style.backgroundColor="darkgray";
 				}
-				if(farmam>=mineupa&&tp>=mineupc){
+				if(farmam>=mineupa && tp>=mineupc){
 						document.getElementById("mineupb").style.backgroundColor="lightblue";
 				}
 				else{
 					document.getElementById("mineupb").style.backgroundColor="darkgray";
 				}
-				if(stoream>=storeupa&&tp>=storeupc){
+				if(stoream>=storeupa && tp>=storeupc){
 						document.getElementById("storeupb").style.backgroundColor="lightblue";
 				}
 				else{
@@ -283,45 +281,45 @@
 			window.setInterval(function(){
 				var rand = Math.floor(Math.random()*2000);
 				var randt = Math.floor(Math.random()*1000);
-				if(rand>=0&&rand<5){
+				if(rand>=0 && rand<5){
 					document.body.style.background="purple";
 					document.getElementById("event").innerHTML="Event: Potato Blight";
 					minusing = mult*pps;
 					mult=-0.25;
 				}
-				else if(rand>=5&&rand<15){
+				else if(rand>=5 && rand<15){
 					document.body.style.background="lightyellow";
 					document.getElementById("event").innerHTML="Event: Potato Bloom";
 					minusing = mult*pps;
 					mult=1.1;
 				}
-				else if(rand>=15&&rand<20){
+				else if(rand>=15 && rand<20){
 					document.body.style.background="darkblue";
 					document.getElementById("event").innerHTML="Event: Robbery";
 					tp = Math.floor(tp*0.9);
 				}
-				else if(rand==21&&randt==1){
+				else if(rand==21 && randt==1){
 					document.body.style.background="red";
 					document.getElementById("event").innerHTML="Event: NUCLEAR EXPLOSION";
 					minusing = mult*pps;
 					mult=-0.95;
 				}
-				else if(rand>=22&&rand<24){
+				else if(rand>=22 && rand<24){
 					document.body.style.background="darkgray";
 					document.getElementById("event").innerHTML="Event: Mass Robbery";
 					tp=0;
 				}
-				else if(rand>=24&&rand<30){
+				else if(rand>=24 && rand<30){
 					document.body.style.background="lime";
 					document.getElementById("event").innerHTML="Event: Generous Donation";
 					tp=Math.floor(tp*1.2);
 				}
-				else if(rand>=30&&rand<32){
+				else if(rand>=30 && rand<32){
 					document.body.style.background="#80f442";
 					document.getElementById("event").innerHTML="Event: Very Generous Donation";
 					tp=Math.floor(tp*2);
 				}
-				else if(rand>=32&&rand<35){
+				else if(rand>=32 && rand<35){
 					document.body.style.background="#f45f42";
 					document.getElementById("event").innerHTML="Event: Potato Slaughter";
 					tp=Math.floor(tp*0.8);
@@ -382,7 +380,7 @@
 				tp = tp+pps;
 			},1000);
 			function jmufun(){
-                var homey=window.open("https://jmufun.com/","_self");
+                var homey = window.open("https://jmufun.com/","_self");
 			}
 		</script>
 		<title>Potato Clicker 2</title>
