@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>Melonmon!</title>
+	<link rel="shortcut icon" type="image/jpg" href="https://i.imgur.com/RgfhfLF.jpg">
     <script>
       var elemIDs = ['onecard', 'twocard', 'thrcard', 'foucard', 'fivcard'];
+
       var srcUrls = ['https://i.imgur.com/Uz3Qgpx.jpg',
                      'https://i.imgur.com/Toh6Evo.jpg',
                      'https://i.imgur.com/EHxOdrP.jpg',
@@ -13,11 +15,14 @@
                      'https://i.imgur.com/KvARrMY.jpg',
                      'https://i.imgur.com/HVkM7yi.jpg',
                      'https://i.imgur.com/WDcOmwK.jpg',
-                     'https://i.imgur.com/drgQ52p.jpg'];
+                     'https://i.imgur.com/drgQ52p.jpg',
+					 'https://i.imgur.com/VLK03IC.jpg',
+					 'https://i.imgur.com/CFxCZ9q.jpg'];
       // [health, attack, heal, superdmg, type, alive?]
+
       var onestat = [45,5,5,15,"Melon",1];
       var twostat = [50,8,"none",15,"Melon",1];
-      var thrstat = [45,7,8,20,"Melon",1]; 
+      var thrstat = [45,7,8,20,"Melon",1];
       var foustat = [55,0,10,"specone","Melon",1];
       var fivstat = [50,10,"none",30,"Melon",1];
       var sixstat = [45,8,5,18,"Fruit",1];
@@ -25,7 +30,10 @@
       var eigstat = [20,5,1,"specthr","Fruit",1];
       var ninstat = [60,1,"none","specfou","Fruit",1];
       var tenstat = [40,8,5,"specfiv","Fruit",1];
-      var statlist = [onestat,twostat,thrstat,foustat,fivstat,sixstat,sevstat,eigstat,ninstat,tenstat];
+      var elestat = [50,10,8,20,"Fruit",1];
+      var twestat = [40,9,8,15,"Fruit",1];
+      var statlist = [onestat,twostat,thrstat,foustat,fivstat,sixstat,sevstat,eigstat,ninstat,tenstat,elestat,twestat];
+
       var onecstat = "";
       var twocstat = "";
       var thrcstat = "";
@@ -47,8 +55,9 @@
       var game=0;
       var opcards=5;
       var ycardss=5;
-      var amtcards = 10;
+      var amtcards = 12;
       function startb(){
+        document.body.style.backgroundColor="lightblue";
         game=1;
         turn=1;
         var amilk = Math.floor(Math.random()*amtcards);
@@ -114,7 +123,6 @@
           turn=0;
           var atkamt = statchoose[1];
           opstat[0] = opstat[0]-atkamt;
-
           document.getElementById('ophealth').innerHTML="Health: " + opstat[0];
           ypowerp = ypowerp+1;
           document.getElementById('ypower').innerHTML="Power Points: " + ypowerp;
@@ -287,6 +295,7 @@
           document.getElementById(elemIDs[allnum]).src="https://bit.ly/2SMGqHm";
           statchoose[5] = 0;
           ycardss=ycarss-1;
+		  turn = 1;
         }
         else{
           statchoose[0]=statchoose[0]-parseInt(opstat[1]);
