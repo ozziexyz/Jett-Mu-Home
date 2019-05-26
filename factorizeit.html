@@ -1,0 +1,300 @@
+ <!DOCTYPE html>
+ <html>
+	<head>
+		<title>Factorize It!</title>
+		<!---<link rel="shortcut icon" type="image/jpg" href="">-->
+		<script>
+			//window.setInterval(function(){
+				//document.getElementById("howto").style.display="none";
+				//document.getElementById("howtotext").style.display="none";
+				//document.getElementById("startbutton").style.display="none";
+				//document.getElementById("dumbbrs").style.display="none";
+			//}, 1);
+			var diflist = [0,1,2,3,4,"Chosen?"];
+			var GameDifficulty = ["Very Easy", "Easy", "Moderate", "Hard", "Very Hard"];
+			var difficulty = "Filler";
+			var countdownnum = 0;
+			var factorstr = "x"
+			var timerbool = 0;
+			var factorlist = [];
+			window.setInterval(function(){
+				if (sgcountdown == 1 && countdownnum >0){
+					countdownnum = Math.round((countdownnum - 0.01)*100)/100;
+					var strcdn = countdownnum.toString();
+					var lengthc = strcdn.length;
+					if(lengthc == 3){
+						strcdn = strcdn + "0";
+					}
+					else if(lengthc == 1){
+						strcdn = strcdn + "00";
+					}
+					document.getElementById("countdowntext").innerHTML = strcdn;
+				}
+				else if (countdownnum == 0 && sgcountdown==1){
+					sgcountdown =0;
+					document.getElementById("countdown").style.display="none";
+					sggame();
+				}
+			}, 10);
+			window.setInterval(function(){
+				if(timerbool==1){
+					secs = Math.round((secs + 0.01)*100)/100;
+					if(secs==60){
+						secs = 0;
+						mins = mins + 1;
+					}
+					document.getElementById("time").innerHTML=mins + " minutes " + secs + " secs";
+				}
+			}, 10);
+			function sgcountdown(){
+				document.getElementById("countdown").style.display="block";
+				countdownnum = 3.01;
+				sgcountdown = 1;
+			}
+			function sggame(){
+				factorstr = "x";
+				addinfactors = []
+				document.getElementById("factors").innerHTML=factorstr;
+				document.getElementById("gamediv").style.display="block";
+				secs = 0;
+				mins = 0;
+				timerbool = 1;
+				if(difficulty==0){
+					var randnum = Math.floor(Math.random()*8)+2;
+				}
+				else if(difficulty==1){
+					var randnum = Math.floor(Math.random()*90)+10;
+				}
+				else if(difficulty==2){
+					var randnum = Math.floor(Math.random()*900)+100;
+				}
+				else if(difficulty==3){
+					var randnum = Math.floor(Math.random()*9000)+1000;
+				}
+				else if(difficulty==4){
+					var randnum = Math.floor(Math.random()*90000)+10000;
+				}
+				document.getElementById("number").innerHTML = randnum;
+				var randfactor = randnum;
+				factorlist = []
+				while (randfactor>1){
+					for(anum=2; anum<=randfactor; anum++){
+						if (Number.isInteger(randfactor/anum)){
+							randfactor=randfactor/anum;
+							factorlist.push(anum);
+							break;
+						}
+					}
+				}
+			}
+			function startgame(){
+				document.getElementById("howto").style.display="none";
+				document.getElementById("howtotext").style.display="none";
+				document.getElementById("startbutton").style.display="none";
+				document.getElementById("dumbbrs").style.display="none";
+				document.getElementById("difficulties").style.display="none";
+				if(diflist[5]=="Chosen?"){
+					setdifficulty(2);
+				}
+				sgcountdown();
+			}
+			function setdifficulty(dif){
+				difficulty = diflist[dif];
+				diflist[5] = "Yes";
+				document.getElementById("difficulty").innerHTML = "Game Difficulty: " + GameDifficulty[dif];
+			}
+			function inputcheck(num){
+				num = parseInt(num);
+				if(Number.isInteger(num)){
+					for(cnum = 0; cnum<factorlist.length; cnum++){
+						if(num==factorlist[cnum]){
+							return true;
+						}
+					}
+					return false;
+				}
+				else{
+					return false;
+				}
+			}
+			function factorstext(){
+				factorstr = "";
+				for(bnum = 0; bnum<addinfactors.length; bnum++){
+					factorstr = factorstr.concat(addinfactors[bnum].toString(10));
+					if(bnum==(addinfactors.length-1)){
+						break;
+					}
+					else{
+						factorstr = factorstr.concat(" x ");
+					}
+				}
+				document.getElementById("factors").innerHTML = factorstr;
+			}
+			function submit(){
+				var inputty = parseInt(document.getElementById("input").value);
+				document.getElementById("input").value="";
+				if(inputcheck(inputty)){
+					var indexnum = factorlist.indexOf(inputty);
+					factorlist.splice(indexnum,1);
+					addinfactors.push(inputty);
+					factorstext();
+					if(factorlist.length==0){
+						timerbool = 0;
+						document.getElementById("playagain").style.display = "block";
+					}
+				}
+			}
+			function playagain(){
+				window.open("https://jmufun.com/factorizeit/","_self");
+			}
+			function home(){
+				window.open("https://jmufun.com","_self");
+			}
+		</script>
+		<style>
+			p{ font-family: comic sans ms; }
+			.title{
+				font-size: 40px;
+				height: 120px;
+				padding: 0px;
+				border: solid lightyellow 2px;
+				text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+				-webkit-animation: rainbow 3s infinite; 
+                -ms-animation: rainbow 3s infinite;
+                animation: rainbow 3s infinite;
+			}
+			button{
+				border: solid black 2px;
+				border-radius: 15%;
+				font-family: comic sans ms;
+			}
+			#startbutton{
+				height: 80px;
+				width: 200px;
+				font-size: 30px;
+				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+				background-color: #ff7272;
+			}
+			#gamediv{
+				display: block;
+			}
+			#howto{
+				font-size: 20px;
+			}
+			#howtotext{
+				font-size: 15px;
+			}
+			.title:hover{
+				font-size:50px;
+			}
+			@-webkit-keyframes rainbow{
+                0%{color: orange;}	
+                10%{color: purple;}	
+                20%{color: red;}
+                30%{color: blue;}
+                40%{color: yellow;}
+                50%{color: coral;}
+                60%{color: green;}
+                70%{color: cyan;}
+                80%{color: DeepPink;}
+                90%{color: DodgerBlue;}
+                100%{color: orange;}
+            }
+            @-ms-keyframes rainbow{
+                0%{color: orange;}	
+                10%{color: purple;}	
+                20%{color: red;}
+                40%{color: yellow;}
+                60%{color: green;}
+                100%{color: orange;}
+            }
+            @keyframes rainbow{
+                0%{color: orange;}	
+                10%{color: purple;}	
+                20%{color: red;}
+                40%{color: yellow;}
+                60%{color: green;}
+                100%{color: orange;}
+            }
+			.diffbuttons{
+				width: 120px;
+				height: 80px;
+				font-size: 14px;
+				background-color: orange;
+				text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+			}
+			#number{ font-size:100px;}
+			#factors{ font-size:20px; color: darkgray;}
+			tr{text-align: center;}
+			#difficulty{font-size:30px;}
+			#input{width:500px; font-family: comic sans ms;}
+			.submit{background-color:lightblue; font-size: 18px; height:40px; width: 160px;}
+			#gamediv{display: none;}
+			#countdown{display: none;}
+			#countdown{border:solid black 1.5px; height: 500px; width: 100%; font-size: 200px;}
+			button:hover{background-color: lime;}
+			#playagain{
+				background-color: pink;
+				font-size: 20px;
+				width: 50%;
+				height: 100px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="background-color: lightyellow">
+		<center>
+			<div class="title">
+				<p>Factorize It!</p>
+			</div>
+			<hr>
+			<p id="difficulty">Game Difficulty: Moderate</p>
+			<p id="howto">How to Play:</p>
+			<p id="howtotext">Click start to start the game. It gives you a 3 second countdown, then the game actually begins. Choose a difficulty to see what range of numbers you will factorize.
+			(If you don't choose, it automatically makes you Moderate). A timer starts. It will show a number that you have to prime factorize. Type a prime factor and click send if it is a factor.
+			If it is a factor, it shows up on the factor screen. Once the number shown is factorized, the game is done and the timer stops. The time is your score. Get the lowest score possible!
+			</p>
+			<br id="dumbbrs"><br id="dumbbrs">
+			<div id="difficulties">
+				<button onclick="setdifficulty(0)" class="diffbuttons"> Very Easy <br> 1 digit nums</button>
+				<button onclick="setdifficulty(1)" class="diffbuttons"> Easy <br> 2 digit nums</button>
+				<button onclick="setdifficulty(2)" class="diffbuttons"> Moderate <br> 3 digit nums</button>
+				<button onclick="setdifficulty(3)" class="diffbuttons"> Hard <br> 4 digit nums</button>
+				<button onclick="setdifficulty(4)" class="diffbuttons"> Very Hard <br> 5 digit nums</button><br><br>
+			</div>
+			<button onclick="startgame()" id="startbutton">Start Game</button>
+			<div id="countdown">
+				<p id="countdowntext" style="padding:0px; line-height:10px;">3</p>
+			</div>
+			<div id="gamediv">
+				<table>
+					<tr width="200px">
+						<td style="border: solid black 1px; width: 600px; height: 400px;">
+							<p id="number">Hi</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: solid black 1px; padding: 0px; height: 50px">
+							<p id="factors">x</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: solid black 1px; padding: 0px; height: 50px">
+							<p id="time">0 minutes 0.00 secs</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: solid black 1px; padding: 0px; height: 50px">
+							<br>
+							<input id="input" placeholder="Factors Here"></input><br><br>
+							<button onclick="submit()" class="submit" id="submit">Submit</button><br><br>
+						</td>
+					</tr>
+				</table>
+			</div><br><br>
+			<button onclick="playagain()" id="playagain">Play Again</button>
+			<br><br><br>
+			<button onclick="home()">Home</button>
+		</center>
+	</body>
+</html>
