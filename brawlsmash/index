@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<center>
+<link rel="shortcut icon" type="image/jpg" href="http://images.clipartpanda.com/smiley-face-transparent-background-8673664872_47a761f1b6_b.jpg">
+<p style="font-size:48px;font-family:comic sans ms"> Brawl Smash (Scratch Knockoff Edition) </p>
+<iframe src="https://scratch.mit.edu/projects/322263501/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+<p style="font-size:25px; font-family:comic sans ms"> How to play </p>
+<p style="font-size:15px; font-family:comic sans ms">Click the green flag to start. (You may have to click twice)
+Player 1 chooses one of the players, and player 2 does the same. Then someone chooses a map/setting to play on.
+Player 1 uses wasd, where w is jump, a is left, d is right, and s is attack. Player 2 is the same but with the arrow keys.
+Each character has different characteristics, and you can view all of them <a href="https://docs.google.com/spreadsheets/d/1MULMj1m6BlpKhfbWXtfq5fK9WareqXMu7CdKwxLgxKg/edit?pli=1#gid=0" target="_blank">here</a>. 
+The player can only attack when the cooldown bar reaches zero. Tokens appear randomly with a 5 second delay. Collecting them will give the player 5 HP.
+When the token turns yellow, collected gives you 10 HP. Falling in lava (red) deals 35 damage. Once one of the players reaches 0 or below 0 HP, the game ends with the other player winning.</p>
+<button onclick="window.open('jmufun.com','_self')" style="border: solid black 2px; font-family: comic sans ms; width: 50%; height: 25px; background-color: lightblue">Back</button>
+</center>
