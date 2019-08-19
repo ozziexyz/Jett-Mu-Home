@@ -6,18 +6,18 @@
     <script>
       var elemIDs = ['onecard', 'twocard', 'thrcard', 'foucard', 'fivcard'];
 
-      var srcUrls = ['https://jmufun.com/melonmon/images/1.jpg',
-                     'https://jmufun.com/melonmon/images/2.jpg',
-                     'https://jmufun.com/melonmon/images/3.jpg',
-                     'https://jmufun.com/melonmon/images/4.jpg',
-                     'https://jmufun.com/melonmon/images/5.jpg',
-                     'https://jmufun.com/melonmon/images/6.jpg',
-                     'https://jmufun.com/melonmon/images/7.jpg',
-                     'https://jmufun.com/melonmon/images/8.jpg',
-                     'https://jmufun.com/melonmon/images/9.jpg',
-                     'https://jmufun.com/melonmon/images/10.jpg',
-					 'https://jmufun.com/melonmon/images/11.jpg',
-					 'https://jmufun.com/melonmon/images/12.jpg'];
+      var srcUrls = ['images/1.jpg',
+                     'images/2.jpg',
+                     'images/3.jpg',
+                     'images/4.jpg',
+                     'images/5.jpg',
+                     'images/6.jpg',
+                     'images/7.jpg',
+                     'images/8.jpg',
+                     'images/9.jpg',
+                     'images/10.jpg',
+					 'images/11.jpg',
+					 'images/12.jpg'];
       // [health, attack, heal, superdmg, type, alive?]
 
       var onestat = [45,5,5,15,"Melon",1];
@@ -148,14 +148,14 @@
         if(opstat[0]<=0){
           opcards=opcards-1;
           if(opcards==0){
-            document.getElementById('opcard').src="https://bit.ly/2SMGqHm";
+            document.getElementById('opcard').src="images/black.jpg";
             alert("You Win!!");
             document.body.style.backgroundColor="yellow";
             game=0;
           }
           else if(ycardss==0){
-            document.getElementById('ycard').src="https://bit.ly/2SMGqHm";
-            alert("You Lose.");
+            document.getElementById('ycard').src="images/black.jpg";
+            alert("You Lose. :(");
             document.body.style.backgroundColor="red";
           }
           var amilk = Math.floor(Math.random()*amtcards);
@@ -360,7 +360,7 @@
         <tr>
           <td><br><br><center>
             <p class="text">Opponent's card</p>
-            <img id="opcard" height="360px" width="240px" src="/images/white.png">
+            <img id="opcard" height="360px" width="240px" src="images/white.png">
             <p class="text" id="ophealth">Health: 0</p>
             <p class="text" id="oppower">Power Points: 0</p><br><br></center>
           </td>
